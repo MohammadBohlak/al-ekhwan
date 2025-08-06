@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -6,15 +6,45 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
-  
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #000;
-    color: #fff;
-    overflow-x: hidden;
-    line-height: 1.6;
+  html{
+    /* font-size: 10px; */
   }
   
+  body {
+     font-family: 'Tajawal', sans-serif !important;
+
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    /* background: #000; */
+    color: #fff;
+    overflow-x: hidden;
+    /* line-height: 1.6; */
+  }
+  :root{
+    --p-section: 100px; 
+
+    
+  @media (max-width: 768px) {
+    --p-section: 80px;
+  }
+   --big-text: 2.8rem ; 
+    --normal-text: 1.5rem; 
+    --small-text: 1.3rem; 
+    --min-text: 1.1rem; 
+    @media (min-width: 769px) and (max-width: 992px){
+      --big-text: 2.5rem ; 
+      --normal-text: 1.4rem; 
+      --small-text: 1.2rem; 
+      --min-text: 1rem; 
+      
+    }
+    @media (max-width: 768px){
+      --big-text: 2.2rem ; 
+      --normal-text: 1.2rem; 
+      --small-text: 1rem; 
+      --min-text: 0.9rem; 
+     --height-nav: 75px 
+    }
+  }
   /* خلفية متحركة مع شبكة */
   .background-grid {
     position: fixed;
@@ -74,28 +104,28 @@ export const GlobalStyle = createGlobalStyle`
   
   /* Sections */
   .section {
-    padding: 100px 2rem;
+    padding: var(--p-section) 2rem;
     max-width: 1200px;
     margin: 0 auto;
   }
   
   .section h2 {
-    font-size: 2.5rem;
+    /* font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
     color: #ff8c00;
-    position: relative;
+    position: relative; */
   }
   
   .section h2::after {
-    content: '';
+    /* content: '';
     position: absolute;
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
     width: 100px;
     height: 3px;
-    background: linear-gradient(45deg, #ff8c00, #ff6600);
+    background: linear-gradient(45deg, #ff8c00, #ff6600); */
   }
   
   /* أنيميشن الظهور عند التمرير */
@@ -138,7 +168,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     .section {
-      padding: 60px 1rem;
+      /* padding: 60px 1rem; */
     }
     
     .services-grid,
@@ -156,4 +186,79 @@ export const GlobalStyle = createGlobalStyle`
       padding: 1rem 1.5rem;
     }
   }
+  
+  /**
+   * TAJAWAL FAMILY
+   * ------------------------------------------
+   * Tajawal-ExtraLight   200 normal
+   * Tajawal-Light        300 normal
+   * Tajawal-Regular      400 normal
+   * Tajawal-Medium       500 normal
+   * Tajawal-ExtraBold    800 normal
+   * Tajawal-Black        900 normal
+   */
+  @font-face {
+  font-family: "Tajawal";
+  src: url("/fonts/Tajawal-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+    font-display: swap;
+
+}
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("/fonts/Tajawal-Light.ttf") format("truetype");
+  font-weight: 300;
+    font-display: swap;
+
+}
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("/fonts/Tajawal-Regular.ttf") format("truetype");
+  font-weight: 400;
+    font-display: swap;
+
+}
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("/fonts/Tajawal-Medium.ttf") format("truetype");
+  font-weight: 500;
+    font-display: swap;
+
+}
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("/fonts/Tajawal-Bold.ttf") format("truetype");
+  font-weight: 700;
+    font-display: swap;
+
+}
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("/fonts/Tajawal-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+    font-display: swap;
+
+}
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("/fonts/Tajawal-Black.ttf") format("truetype");
+  font-weight: 900;
+    font-display: swap;
+
+}
+
+  /* 3. اختيار العائلة على أساس لغة الصفحة */
+  /* html[lang="ar"] {
+   body{
+     font-family: 'Tajawal', sans-serif !important;
+ 
+
+    }
+  } */
 `;

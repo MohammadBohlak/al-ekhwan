@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useRef } from "react";
+import styled from "styled-components";
 
 const BackgroundGrid = styled.div`
   position: fixed;
@@ -7,11 +7,10 @@ const BackgroundGrid = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-image:
-      linear-gradient(rgba(255, 140, 0, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 140, 0, 0.1) 1px, transparent 1px);
+  /* background-image: linear-gradient(rgba(255, 140, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 140, 0, 0.1) 1px, transparent 1px); */
   background-size: 50px 50px;
-  animation: gridMove 20s linear infinite;
+  animation: gridMove 10s linear infinite;
   z-index: -2;
 `;
 
@@ -44,22 +43,22 @@ const BackgroundEffects = () => {
       if (!particlesContainer) return;
 
       const particleCount = 50;
-      
+
       for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        
+        const particle = document.createElement("div");
+        particle.className = "particle";
+
         // مواقع عشوائية
         const posX = Math.random() * 100;
         const posY = Math.random() * 100;
-        
+
         // تأخير عشوائي للأنيميشن
         const delay = Math.random() * 6;
-        
+
         particle.style.left = `${posX}%`;
         particle.style.top = `${posY}%`;
         particle.style.animationDelay = `${delay}s`;
-        
+
         particlesContainer.appendChild(particle);
       }
     };

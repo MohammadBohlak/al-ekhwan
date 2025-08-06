@@ -1,64 +1,63 @@
-import React from 'react';
-import styled from 'styled-components';
-import ProjectCard from '../ui/ProjectCard';
-import { featuredProjects } from '../../assets/data/projects';
+import React from "react";
+import styled from "styled-components";
+import ProjectCard from "../ui/ProjectCard";
+import { featuredProjects } from "../../assets/data/projects";
+import { Container } from "../ui/container.styles";
+import { MainTitle } from "../common/texts";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
 
-const ProjectsSectionContainer = styled.section`
-  padding: 100px 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  
-  @media (max-width: 768px) {
-    padding: 60px 1rem;
-  }
-`;
+// استيراد ملفات CSS الخاصة بـ Swiper
+import "swiper/css";
+import "swiper/css/pagination";
 
-const SectionTitle = styled.h2`
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 3rem;
-  color: #ff8c00;
-  position: relative;
-  
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(45deg, #ff8c00, #ff6600);
+const StlyedSwiper = styled(Swiper)`
+  .swiper-pagination-bullet {
+    background-color: #ff8c00;
   }
-`;
-
-const ProjectsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
+  padding: 50px 0;
 `;
 
 const ProjectsSection = () => {
   return (
-    <ProjectsSectionContainer id="projects" className="fade-in section">
-      <SectionTitle>مشاريعنا المختارة</SectionTitle>
-      <ProjectsGrid>
+    <div id="projects" className="fade-in section">
+      <MainTitle>مشاريعنا المختارة</MainTitle>
+
+      {/* إعداد Swiper */}
+      <StlyedSwiper
+        modules={[Pagination, Autoplay]}
+        pagination={{ clickable: true }}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: true, // تعطيل التنقل التلقائي عند تفاعل المستخدم
+        }}
+        breakpoints={{
+          992: {
+            slidesPerView: 3,
+            spaceBetween: 15,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 15,
+          },
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+        }}
+      >
         {featuredProjects.map((project, index) => (
-          <ProjectCard 
-            key={index}
-            icon={project.icon}
-            title={project.title}
-            description={project.description}
-            details={project.details}
-          />
+          <SwiperSlide key={index}>
+            <ProjectCard
+              icon={project.icon}
+              title={project.title}
+              description={project.description}
+              details={project.details}
+            />
+          </SwiperSlide>
         ))}
-      </ProjectsGrid>
-    </ProjectsSectionContainer>
+      </StlyedSwiper>
+    </div>
   );
 };
 

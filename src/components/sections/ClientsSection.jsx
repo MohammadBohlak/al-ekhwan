@@ -1,15 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import { clients } from '../../assets/data/projects';
+import React from "react";
+import styled from "styled-components";
+import { clients } from "../../assets/data/projects";
+import { Container } from "../ui/container.styles";
+import { MainTitle } from "../common/texts";
 
 const ClientsSectionContainer = styled.section`
-  padding: 100px 2rem;
+  padding: var(--p-section) 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  
-  @media (max-width: 768px) {
-    padding: 60px 1rem;
-  }
 `;
 
 const SectionTitle = styled.h2`
@@ -18,9 +16,9 @@ const SectionTitle = styled.h2`
   margin-bottom: 3rem;
   color: #ff8c00;
   position: relative;
-  
+
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -10px;
     left: 50%;
@@ -44,14 +42,14 @@ const ClientLink = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   img {
     max-width: 100px;
     height: auto;
     opacity: 0.8;
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
-  
+
   &:hover img {
     opacity: 1;
     transform: scale(1.05);
@@ -60,21 +58,21 @@ const ClientLink = styled.a`
 
 const ClientsSection = () => {
   return (
-    <ClientsSectionContainer id="clients" className="fade-in section">
-      <SectionTitle>عملاؤنا المميزون</SectionTitle>
+    <Container id="clients" className="fade-in section">
+      <MainTitle>عملاؤنا المميزون</MainTitle>
       <ClientsGrid>
         {clients.map((client, index) => (
-          <ClientLink 
+          <ClientLink
             key={index}
-            href={client.url} 
-            target="_blank" 
+            href={client.url}
+            target="_blank"
             rel="noopener noreferrer"
           >
             <img src={client.logo} alt={`Client ${index + 1}`} />
           </ClientLink>
         ))}
       </ClientsGrid>
-    </ClientsSectionContainer>
+    </Container>
   );
 };
 

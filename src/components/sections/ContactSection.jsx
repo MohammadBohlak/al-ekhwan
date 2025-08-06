@@ -1,15 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import { contactInfo } from '../../assets/data/projects';
+import React from "react";
+import styled from "styled-components";
+import { contactInfo } from "../../assets/data/projects";
+import { Container } from "../ui/container.styles";
 
 const ContactSectionContainer = styled.section`
-  padding: 100px 2rem;
+  padding: var(--p-section) 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  
-  @media (max-width: 768px) {
-    padding: 60px 1rem;
-  }
 `;
 
 const SectionTitle = styled.h2`
@@ -18,9 +15,9 @@ const SectionTitle = styled.h2`
   margin-bottom: 3rem;
   color: #ff8c00;
   position: relative;
-  
+
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -10px;
     left: 50%;
@@ -41,11 +38,15 @@ const ContactGrid = styled.div`
 const ContactItem = styled.div`
   text-align: center;
   padding: 2rem;
-  background: linear-gradient(135deg, rgba(255, 140, 0, 0.1), rgba(0, 0, 0, 0.8));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 140, 0, 0.1),
+    rgba(0, 0, 0, 0.8)
+  );
   border-radius: 15px;
   border: 1px solid rgba(255, 140, 0, 0.3);
   transition: all 0.3s ease;
-  
+
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(255, 140, 0, 0.2);
@@ -69,18 +70,20 @@ const ContactDetails = styled.p`
 
 const ContactSection = () => {
   return (
-    <ContactSectionContainer id="contact" className="fade-in section">
+    <Container id="contact" className="fade-in section">
       <SectionTitle>تواصل معنا</SectionTitle>
       <ContactGrid>
         {contactInfo.map((item, index) => (
           <ContactItem key={index}>
             <ContactIcon>{item.icon}</ContactIcon>
             <ContactTitle>{item.title}</ContactTitle>
-            <ContactDetails dangerouslySetInnerHTML={{ __html: item.details }} />
+            <ContactDetails
+              dangerouslySetInnerHTML={{ __html: item.details }}
+            />
           </ContactItem>
         ))}
       </ContactGrid>
-    </ContactSectionContainer>
+    </Container>
   );
 };
 
