@@ -11,7 +11,8 @@ export const NavbarContainer = styled.header`
   z-index: 1000;
   padding: 10px 2rem;
   transition: all 0.3s ease;
-  box-shadow: 0 1px 10px rgba(255, 140, 0, 0.3);
+  box-shadow: ${({ $scrolled }) =>
+    !$scrolled ? " 0 1px 10px rgba(255, 140, 0, 0.3)" : "none"};
   transform: translateY(${(props) => (props.$scrolled ? "-100%" : "0")});
 `;
 
