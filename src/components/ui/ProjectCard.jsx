@@ -11,7 +11,7 @@ const StyledProjectCard = styled.div`
   border: 1px solid rgba(255, 140, 0, 0.3);
   position: relative;
   display: flex;
-  /* min-height: 480px; */
+  min-height: 480px;
   flex-direction: column;
   &:hover {
     /* transform: scale(1.05); */
