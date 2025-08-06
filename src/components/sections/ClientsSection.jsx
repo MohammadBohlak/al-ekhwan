@@ -14,7 +14,7 @@ const SectionTitle = styled.h2`
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 3rem;
-  color: #ff8c00;
+  color: #ed9245;
   position: relative;
 
   &::after {
@@ -30,12 +30,16 @@ const SectionTitle = styled.h2`
 `;
 
 const ClientsGrid = styled.div`
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 2rem;
   justify-items: center;
-  align-items: center;
+  align-items: center; */
+  gap: 2rem;
   margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 `;
 
 const ClientLink = styled.a`
@@ -44,7 +48,7 @@ const ClientLink = styled.a`
   justify-content: center;
 
   img {
-    max-width: 100px;
+    max-width: 130px;
     height: auto;
     opacity: 0.8;
     transition: opacity 0.3s ease, transform 0.3s ease;

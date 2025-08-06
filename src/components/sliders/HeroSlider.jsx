@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
-import styled from 'styled-components';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import React, { useState, useEffect, useRef } from "react";
+import styled from "styled-components";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 // import { projects } from '../../assets/data/projects';
-import { projects } from '../../assets/data/projects';
+import { projects } from "../../assets/data/projects";
 
 const HeroSection = styled.section`
   height: 100vh;
@@ -16,15 +16,15 @@ const HeroSection = styled.section`
   text-align: center;
   position: relative;
   overflow: hidden;
-  
+
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.2);
     z-index: -1;
   }
 `;
@@ -44,7 +44,7 @@ const BackgroundSlide = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
 `;
@@ -60,29 +60,27 @@ const ProjectIndicator = styled.div`
   border-radius: 10px;
   border: 1px solid rgba(255, 140, 0, 0.3);
   max-width: 90%;
-  
+
   @media (max-width: 768px) {
     padding: 1.5rem;
   }
-  
+
   @media (max-width: 480px) {
     padding: 1rem 1.5rem;
   }
 `;
 
 const ProjectName = styled.div`
-  font-size: 2rem;
-  font-weight: 400;
+  font-size: var(--normal-text);
   color: rgba(255, 255, 255, 0.95);
   text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
-  margin-bottom: 0.8rem;
-  
+
   @media (max-width: 768px) {
-    font-size: 1rem;
+    /* font-size: 1rem; */
   }
-  
+
   @media (max-width: 480px) {
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
   }
 `;
 
@@ -97,16 +95,16 @@ const HeroSlider = () => {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'ArrowLeft') {
+      if (e.key === "ArrowLeft") {
         swiperRef.current?.slideNext();
-      } else if (e.key === 'ArrowRight') {
+      } else if (e.key === "ArrowRight") {
         swiperRef.current?.slidePrev();
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 
@@ -119,7 +117,7 @@ const HeroSlider = () => {
       <HeroBackground>
         <StyledSwiper
           ref={swiperRef}
-          modules={[Autoplay, Navigation, Pagination]}
+          modules={[Autoplay]}
           spaceBetween={0}
           slidesPerView={1}
           autoplay={{
@@ -128,26 +126,21 @@ const HeroSlider = () => {
           }}
           loop={true}
           onSlideChange={handleSlideChange}
-          navigation={{
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          }}
           pagination={{
-            el: '.swiper-pagination',
+            el: ".swiper-pagination",
             clickable: true,
           }}
         >
           {projects.map((project, index) => (
             <SwiperSlide key={index}>
-              <BackgroundSlide style={{ backgroundImage: `url(${project.image})` }} />
+              <BackgroundSlide
+                style={{ backgroundImage: `url(${project.image})` }}
+              />
             </SwiperSlide>
           ))}
-          <div className="swiper-button-next"></div>
-          <div className="swiper-button-prev"></div>
-          <div className="swiper-pagination"></div>
         </StyledSwiper>
       </HeroBackground>
-      
+
       <ProjectIndicator>
         <ProjectName>{projects[currentSlide]?.name}</ProjectName>
       </ProjectIndicator>

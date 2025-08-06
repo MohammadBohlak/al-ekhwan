@@ -2,19 +2,36 @@ import React from "react";
 import styled from "styled-components";
 import { SubTitle, Text } from "../common/texts";
 
+const ServiceIcon = styled.div`
+  font-size: 2.5rem;
+  color: #ff8c00;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: auto;
+  background-color: #f5f5f5;
+  margin-bottom: 10px;
+  transition: all 0.3s;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-left: auto;
+  margin-right: auto; */
+`;
 const StyledCard = styled.div`
-  background: linear-gradient(
-    135deg,
-    rgba(255, 198, 128, 0.595),
-    rgba(255, 255, 255, 0.8)
-  );
+  text-align: center;
+  background-color: #fff;
   padding: 2rem;
   border-radius: 20px;
   border: 1px solid rgba(255, 140, 0, 0.3);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  box-shadow: var(--card-shadow);
   &::before {
     content: "";
     position: absolute;
@@ -33,35 +50,13 @@ const StyledCard = styled.div`
     display: none;
   }
 
-  &:hover::before {
-    left: 100%;
-  }
-
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(255, 140, 0, 0.2);
+    ${ServiceIcon} {
+      background-color: var(--primary);
+      color: #fff;
+    }
   }
 `;
-
-const ServiceIcon = styled.div`
-  font-size: 4rem;
-  /* color: #ff8c00; */
-  margin-bottom: 10px;
-  text-align: center;
-  /* margin-left: auto;
-  margin-right: auto; */
-`;
-
-const CardTitle = styled.h3`
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #000;
-`;
-
-const CardDescription = styled.p`
-  color: #333;
-`;
-
 const Card = ({ icon, title, description, children, ...props }) => {
   return (
     <StyledCard {...props}>

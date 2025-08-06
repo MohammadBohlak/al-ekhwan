@@ -16,11 +16,15 @@ const StlyedSwiper = styled(Swiper)`
     background-color: #ff8c00;
   }
   padding: 50px 0;
+  .swiper-slide {
+    /* width: 100% !important; */
+    /* margin: 0 !important; */
+  }
 `;
 
 const ProjectsSection = () => {
   return (
-    <div id="projects" className="fade-in section">
+    <Container id="projects" className="fade-in">
       <MainTitle>مشاريعنا المختارة</MainTitle>
 
       {/* إعداد Swiper */}
@@ -57,7 +61,7 @@ const ProjectsSection = () => {
           </SwiperSlide>
         ))}
       </StlyedSwiper>
-    </div>
+    </Container>
   );
 };
 

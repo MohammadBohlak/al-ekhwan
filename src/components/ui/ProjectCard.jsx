@@ -4,13 +4,14 @@ import { LigntText, SubTitle, Text } from "../common/texts";
 
 const StyledProjectCard = styled.div`
   /* background: rgba(255, 140, 0, 0.1); */
+  box-shadow: var(--card-shadow);
   border-radius: 15px;
   overflow: hidden;
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 140, 0, 0.3);
   position: relative;
   display: flex;
-  min-height: 480px;
+  /* min-height: 480px; */
   flex-direction: column;
   &:hover {
     /* transform: scale(1.05); */

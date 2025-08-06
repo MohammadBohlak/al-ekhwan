@@ -15,13 +15,15 @@ export const GlobalStyle = createGlobalStyle`
 
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     /* background: #000; */
+    background-color: #f5f7f8;
     color: #fff;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     /* line-height: 1.6; */
   }
   :root{
     --p-section: 100px; 
-
+    --primary: #ff8c00;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     
   @media (max-width: 768px) {
     --p-section: 80px;
@@ -104,9 +106,10 @@ export const GlobalStyle = createGlobalStyle`
   
   /* Sections */
   .section {
-    padding: var(--p-section) 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    /* padding: var(--p-section) 2rem; */
+    /* max-width: 1200px; */
+    /* margin: 0 auto; */
+
   }
   
   .section h2 {

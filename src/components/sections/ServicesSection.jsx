@@ -13,10 +13,14 @@ const ServicesSectionContainer = styled.section`
 
 const ServicesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
   gap: 1.5rem;
   /* margin-top: 3rem; */
 
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
@@ -25,7 +29,7 @@ const ServicesGrid = styled.div`
 const ServicesSection = () => {
   console.log(services);
   return (
-    <Container id="services" className="fade-in section">
+    <Container id="services" className="fade-in">
       <MainTitle>خدماتنا</MainTitle>
       <ServicesGrid>
         {services.map((service, index) => (
