@@ -109,9 +109,9 @@ const HeroSlider = () => {
   }, []);
 
   const handleSlideChange = (swiper) => {
-    setCurrentSlide(swiper.activeIndex);
+    // setCurrentSlide(swiper.activeIndex);
+    setCurrentSlide((prev) => (prev + 1) % projects.length);
   };
-
   return (
     <HeroSection id="home">
       <HeroBackground>
@@ -121,7 +121,7 @@ const HeroSlider = () => {
           spaceBetween={0}
           slidesPerView={1}
           autoplay={{
-            delay: 2000,
+            delay: 5000,
             disableOnInteraction: false,
           }}
           loop={true}

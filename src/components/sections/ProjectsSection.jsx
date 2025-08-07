@@ -18,6 +18,7 @@ const StlyedSwiper = styled(Swiper)`
   padding: 50px 0;
   direction: ltr;
   .swiper-slide {
+    direction: rtl;
     /* width: 100% !important; */
     /* margin: 0 !important; */
   }
