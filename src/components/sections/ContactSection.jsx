@@ -1,86 +1,258 @@
+import { FaWhatsapp } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 import React from "react";
 import styled from "styled-components";
 import { contactInfo } from "../../assets/data/projects";
 import { Container } from "../ui/container.styles";
 import { LigntText, MainTitle, SubTitle } from "../common/texts";
+import { FaFacebookF } from "react-icons/fa";
 
 const ContactGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: 0.8fr 1fr;
   gap: 2rem;
+  row-gap: 3rem;
   margin-top: 3rem;
+  @media (max-width: 1100px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const ContactIcon = styled.div`
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: var(--primary);
   margin-bottom: 1rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  transition: all 0.3s;
 `;
-const ContactDetails = styled(LigntText)`
-  color: #ddd;
-`;
-const ContactItem = styled.div`
-  /* text-align: center; */
-  padding: 2rem;
-  /* background: linear-gradient(
-    135deg,
-    rgba(255, 140, 0, 0.1),
-    rgba(0, 0, 0, 0.8)
-  ); */
-  border-radius: 15px;
-  /* border: 1px solid rgba(255, 140, 0, 0.3); */
-  transition: all 0.3s ease;
 
-  ${ContactIcon} {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    font-size: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s;
-  }
-  &:nth-child(odd) {
-    background-color: black;
-    ${ContactIcon} {
-      background-color: #4a4a4a;
-    }
-  }
-  &:nth-child(even) {
-    background-color: white;
-    ${ContactIcon} {
-      background-color: #f5f5f5;
-      color: var(--primary);
-    }
-    ${ContactDetails} {
-      color: #666;
-    }
-  }
-  &:hover ${ContactIcon} {
-    background-color: var(--primary);
-    color: white;
-  }
+const ContactDetails = styled(LigntText)`
+  color: #666;
+`;
+
+const ContactItem = styled.div`
+  padding: 2rem;
+  border-radius: 15px;
+  background-color: white;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
   &:hover {
     transform: translateY(-5px);
     box-shadow: var(--card-shadow);
   }
+
+  &:hover ${ContactIcon} {
+    background-color: var(--primary);
+    color: white;
+  }
 `;
 
+const ContactFormWrapper = styled.form`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+`;
+
+const FormBox = styled.div`
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e9ecef;
+  display: flex;
+  flex-direction: column;
+`;
+
+const FormTitle = styled(SubTitle)`
+  /* font-size: 24px; */
+  /* font-weight: 700; */
+  color: #212121;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary);
+  }
+`;
+
+const FormGroup = styled.div`
+  margin-bottom: 20px;
+`;
+
+const FormLabel = styled.label`
+  display: block;
+  font-size: var(--small-text);
+  font-weight: 500;
+  color: #495057;
+  margin-bottom: 8px;
+`;
+
+const FormInput = styled.input`
+  width: 100%;
+  padding: 12px 15px;
+  font-size: var(--min-text);
+  font-family: "Tajawal", sans-serif;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: #ff7043;
+    box-shadow: 0 0 0 2px rgba(255, 112, 67, 0.1);
+    background-color: #ffffff;
+  }
+`;
+
+const FormTextarea = styled.textarea`
+  width: 100%;
+  padding: 12px 15px;
+  font-size: var(--min-text);
+  font-family: "Tajawal", sans-serif;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  background-color: #f8f9fa;
+  resize: vertical;
+  min-height: 120px;
+  transition: all 0.3s ease;
+  resize: none;
+  &:focus {
+    outline: none;
+    border-color: #ff7043;
+    box-shadow: 0 0 0 2px rgba(255, 112, 67, 0.1);
+    background-color: #ffffff;
+  }
+`;
+
+const SubmitButton = styled.button`
+  margin-top: 10px;
+  padding: 12px 20px;
+  font-size: var(--small-text);
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #ff7043;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #ff7043;
+
+  &:hover {
+    background-color: #fff;
+    color: #ff7043;
+  }
+`;
+
+const SocialLinks = styled.div`
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  justify-content: center;
+`;
+
+const SocialLink = styled.a`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--normal-text);
+  color: #6c757d;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #ff7043;
+    color: #ffffff;
+    transform: translateY(-3px);
+    border-color: #ff7043;
+  }
+`;
+const ContactItems = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
 const ContactSection = () => {
   return (
     <Container id="contact" className="fade-in section">
       <MainTitle>تواصل معنا</MainTitle>
       <ContactGrid>
-        {contactInfo.map((item, index) => (
-          <ContactItem key={index}>
-            <ContactIcon>{item.icon}</ContactIcon>
-            <SubTitle>{item.title}</SubTitle>
-            <ContactDetails
-              dangerouslySetInnerHTML={{ __html: item.details }}
-            />
-          </ContactItem>
-        ))}
+        <ContactFormWrapper>
+          <FormBox>
+            <FormTitle>ارسل لنا رسالة</FormTitle>
+
+            <FormGroup>
+              <FormLabel htmlFor="name">الاسم</FormLabel>
+              <FormInput id="name" type="text" placeholder="أدخل اسمك الكامل" />
+            </FormGroup>
+
+            <FormGroup>
+              <FormLabel htmlFor="email">البريد الإلكتروني</FormLabel>
+              <FormInput
+                id="email"
+                type="email"
+                placeholder="أدخل بريدك الإلكتروني"
+              />
+            </FormGroup>
+
+            <FormGroup>
+              <FormLabel htmlFor="message">الرسالة</FormLabel>
+              <FormTextarea id="message" placeholder="اكتب رسالتك هنا..." />
+            </FormGroup>
+
+            <SubmitButton type="submit">إرسال الرسالة</SubmitButton>
+
+            <SocialLinks>
+              <SocialLink href="#">
+                <FaFacebookF />
+              </SocialLink>
+              <SocialLink href="#">
+                <FaInstagram />
+              </SocialLink>
+              <SocialLink href="#">
+                <FaWhatsapp />
+              </SocialLink>
+            </SocialLinks>
+          </FormBox>
+        </ContactFormWrapper>
+        <ContactItems>
+          {contactInfo.map((item, idx) => (
+            <ContactItem key={idx}>
+              <ContactIcon>{item.icon}</ContactIcon>
+              <SubTitle>{item.title}</SubTitle>
+              <ContactDetails
+                dangerouslySetInnerHTML={{ __html: item.details }}
+              />
+            </ContactItem>
+          ))}
+        </ContactItems>
       </ContactGrid>
     </Container>
   );

@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
      font-family: 'Tajawal', sans-serif !important;
 
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
-    /* background: #000; */
+    /* background: #2a2929ff; */
     background-color: #f5f7f8;
     color: #fff;
     /* overflow-x: hidden; */
