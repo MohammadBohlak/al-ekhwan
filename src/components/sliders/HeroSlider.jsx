@@ -16,7 +16,7 @@ const HeroSection = styled.section`
   text-align: center;
   position: relative;
   overflow: hidden;
-
+  margin-bottom: var(--p-section);
   &::before {
     content: "";
     position: absolute;
