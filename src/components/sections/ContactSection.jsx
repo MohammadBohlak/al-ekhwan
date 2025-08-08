@@ -46,6 +46,8 @@ const ContactItem = styled.div`
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  border-right: 4px solid var(--primary);
+  /* border-right-color: var(--primary); */
   &:hover {
     transform: translateY(-5px);
     box-shadow: var(--card-shadow);
@@ -72,6 +74,7 @@ const FormBox = styled.div`
   border: 1px solid #e9ecef;
   display: flex;
   flex-direction: column;
+  border-top: 4px solid var(--primary);
 `;
 
 const FormTitle = styled(SubTitle)`
