@@ -87,6 +87,7 @@ const ProjectName = styled.div`
 const StyledSwiper = styled(Swiper)`
   width: 100%;
   height: 100%;
+  direction: ltr;
 `;
 
 const HeroSlider = () => {
