@@ -21,6 +21,9 @@ const StlyedSwiper = styled(Swiper)`
     direction: rtl;
     /* width: 100% !important; */
     /* margin: 0 !important; */
+    @media (max-width: 768px) {
+      text-align: center;
+    }
   }
 `;
 
