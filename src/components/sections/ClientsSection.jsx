@@ -6,7 +6,8 @@ import { MainTitle } from "../common/texts";
 
 const ClientsSectionContainer = styled.section`
   padding: var(--p-section) 2rem;
-  max-width: 1200px;
+  padding-bottom: 0px;
+  /* max-width: 1200px; */
   margin: 0 auto;
 `;
 
