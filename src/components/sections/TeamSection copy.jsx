@@ -4,8 +4,7 @@ import Card from "../ui/Card";
 import { teamMembers } from "../../assets/data/projects";
 import { Container } from "../ui/container.styles";
 import { SubTitle, Text } from "../common/texts";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import Swiper from "swiper";
 
 const StlyedSwiper = styled(Swiper)`
   .swiper-pagination-bullet {
@@ -69,42 +68,19 @@ const TeamSection = () => {
   return (
     <Container id="team" className="fade-in section">
       <SectionTitle>فريق العمل</SectionTitle>
-      <StlyedSwiper
-        modules={[Pagination, Autoplay]}
-        pagination={{ clickable: true }}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: true, // تعطيل التنقل التلقائي عند تفاعل المستخدم
-        }}
-        breakpoints={{
-          992: {
-            slidesPerView: 3,
-            spaceBetween: 15,
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 15,
-          },
-          0: {
-            slidesPerView: 1,
-            spaceBetween: 10,
-          },
-        }}
-      >
+      <TeamGrid>
         {teamMembers.map((member, index) => (
-          <SwiperSlide key={index}>
-            <Card key={index}>
-              <TeamImage
-                style={{ color: "#000" }}
-                src={member.image}
-                alt={member.name}
-              />
-              <SubTitle>{member.name}</SubTitle>
-              <Text>{member.position}</Text>
-            </Card>
-          </SwiperSlide>
+          <Card key={index}>
+            <TeamImage
+              style={{ color: "#000" }}
+              src={member.image}
+              alt={member.name}
+            />
+            <SubTitle>{member.name}</SubTitle>
+            <Text>{member.position}</Text>
+          </Card>
         ))}
-      </StlyedSwiper>
+      </TeamGrid>
     </Container>
   );
 };

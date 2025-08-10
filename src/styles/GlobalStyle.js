@@ -25,8 +25,11 @@ export const GlobalStyle = createGlobalStyle`
     --primary: #ff8c00;
     --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     --p-section: 80px;
+  }
+  @media (max-width: 768px) {
+    --p-section: 40px;
   }
    --big-text: 2.8rem ; 
     --normal-text: 1.5rem; 

@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { clients } from "../../assets/data/projects";
 import { Container } from "../ui/container.styles";
 import { MainTitle } from "../common/texts";
@@ -29,34 +29,21 @@ const SectionTitle = styled.h2`
   }
 `;
 
-const ClientsSlider = styled.div`
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-`;
-
-const SlideTrack = styled.div`
-  @keyframes scroll {
-    0% {
-      transform: translateX(${(props) => props.$translateX});
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
+const ClientsGrid = styled.div`
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  justify-items: center;
+  align-items: center; */
+  gap: 2rem;
+  margin-top: 2rem;
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 3rem;
-  white-space: nowrap;
-  animation: scroll 20s linear infinite;
-
-  &:hover {
-    animation-play-state: paused;
-  }
+  flex-wrap: wrap;
 `;
 
 const ClientLink = styled.a`
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 
@@ -74,27 +61,21 @@ const ClientLink = styled.a`
 `;
 
 const ClientsSection = () => {
-  const translateX = clients.length * 15;
   return (
     <Container id="clients" className="fade-in section">
       <MainTitle>عملاؤنا المميزون</MainTitle>
-
-      <ClientsSectionContainer>
-        <ClientsSlider>
-          <SlideTrack $translateX={`${translateX}%`}>
-            {clients.map((client, index) => (
-              <ClientLink
-                key={index}
-                href={client.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src={client.logo} alt={`Client ${index + 1}`} />
-              </ClientLink>
-            ))}
-          </SlideTrack>
-        </ClientsSlider>
-      </ClientsSectionContainer>
+      <ClientsGrid>
+        {clients.map((client, index) => (
+          <ClientLink
+            key={index}
+            href={client.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={client.logo} alt={`Client ${index + 1}`} />
+          </ClientLink>
+        ))}
+      </ClientsGrid>
     </Container>
   );
 };

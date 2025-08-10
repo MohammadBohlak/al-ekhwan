@@ -8,7 +8,7 @@ import { LigntText, MainTitle, SubTitle } from "../common/texts";
 import { FaFacebookF } from "react-icons/fa";
 
 const ContactGrid = styled.div`
-  display: grid;
+  /* display: grid; */
   grid-template-columns: 0.8fr 1fr;
   gap: 2rem;
   row-gap: 3rem;
@@ -63,6 +63,18 @@ const ContactFormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   flex: 1;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  @media (max-width: 992px) {
+    width: 60%;
+  }
+  @media (max-width: 768px) {
+    width: 70%;
+  }
+  @media (max-width: 567px) {
+    width: 100%;
+  }
 `;
 
 const FormBox = styled.div`
@@ -232,7 +244,7 @@ const ContactSection = () => {
 
             <SubmitButton type="submit">إرسال الرسالة</SubmitButton>
 
-            <SocialLinks>
+            {/* <SocialLinks>
               <SocialLink href="#">
                 <FaFacebookF />
               </SocialLink>
@@ -242,10 +254,10 @@ const ContactSection = () => {
               <SocialLink href="#">
                 <FaWhatsapp />
               </SocialLink>
-            </SocialLinks>
+            </SocialLinks> */}
           </FormBox>
         </ContactFormWrapper>
-        <ContactItems>
+        {/* <ContactItems>
           {contactInfo.map((item, idx) => (
             <ContactItem key={idx}>
               <ContactIcon>{item.icon}</ContactIcon>
@@ -255,7 +267,7 @@ const ContactSection = () => {
               />
             </ContactItem>
           ))}
-        </ContactItems>
+        </ContactItems> */}
       </ContactGrid>
     </Container>
   );

@@ -7,8 +7,8 @@ const BackgroundGrid = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(rgba(255, 140, 0, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 140, 0, 0.1) 1px, transparent 1px);
+  /* background-image: linear-gradient(rgba(255, 140, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 140, 0, 0.1) 1px, transparent 1px); */
   background-size: 50px 50px;
   animation: gridMove 10s linear infinite;
   z-index: -2;

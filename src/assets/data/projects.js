@@ -203,6 +203,10 @@ export const clients = [
 export const teamMembers = [
   { image: eng, name: "المهندس أحمد العلي", position: "مدير المشاريع" },
   { image: eng, name: "المهندسة سارة يوسف", position: "رئيسة قسم التصميم" },
+  { image: eng, name: "المهندسة سارة يوسف", position: "رئيسة قسم التصميم" },
+  { image: eng, name: "المهندسة سارة يوسف", position: "رئيسة قسم التصميم" },
+  { image: eng, name: "المهندسة سارة يوسف", position: "رئيسة قسم التصميم" },
+  { image: eng, name: "المهندسة سارة يوسف", position: "رئيسة قسم التصميم" },
   { image: eng, name: "المهندس خالد حسن", position: "المدير التنفيذي" },
   // { image: team1, name: "المهندس أحمد العلي", position: "مدير المشاريع" },
   // { image: team2, name: "المهندسة سارة يوسف", position: "رئيسة قسم التصميم" },
