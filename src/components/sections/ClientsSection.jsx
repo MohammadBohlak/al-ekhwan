@@ -3,8 +3,10 @@ import styled, { keyframes } from "styled-components";
 import { clients } from "../../assets/data/projects";
 import { Container } from "../ui/container.styles";
 import { MainTitle } from "../common/texts";
+import { sectionAnimation, titleAnimation } from "../../animations/animations";
+import { motion } from "motion/react";
 
-const ClientsSectionContainer = styled.section`
+const ClientsSectionContainer = styled(motion.section)`
   padding: var(--p-section) 2rem;
   padding-bottom: 0px;
   /* max-width: 1200px; */
@@ -49,14 +51,14 @@ const SlideTrack = styled.div`
   align-items: center;
   gap: 3rem;
   white-space: nowrap;
-  animation: scroll 20s linear infinite;
+  animation: scroll 40s linear infinite;
 
   &:hover {
     animation-play-state: paused;
   }
 `;
 
-const ClientLink = styled.a`
+const ClientLink = styled.div`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -64,23 +66,29 @@ const ClientLink = styled.a`
   img {
     max-width: 130px;
     height: auto;
-    opacity: 0.8;
+    opacity: 1;
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   &:hover img {
-    opacity: 1;
-    transform: scale(1.05);
+    /* opacity: 1; */
+    /* transform: scale(1.05); */
   }
 `;
 
 const ClientsSection = () => {
-  const translateX = clients.length * 15;
+  const translateX = clients.length * 10;
   return (
-    <Container id="clients" className="fade-in section">
-      <MainTitle>عملاؤنا المميزون</MainTitle>
+    <Container
+      id="clients"
+      //  className="fade-in section"
+    >
+      <MainTitle {...titleAnimation}>عملاؤنا المميزون</MainTitle>
 
-      <ClientsSectionContainer>
+      <ClientsSectionContainer
+        {...sectionAnimation}
+        // viewport={{ once: true }}
+      >
         <ClientsSlider>
           <SlideTrack $translateX={`${translateX}%`}>
             {clients.map((client, index) => (

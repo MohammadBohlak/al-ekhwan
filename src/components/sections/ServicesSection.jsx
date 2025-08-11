@@ -4,6 +4,8 @@ import Card from "../ui/Card";
 import { services } from "../../assets/data/projects";
 import { MainTitle } from "../common/texts";
 import { Container } from "../ui/container.styles";
+import { motion } from "motion/react";
+import { titleAnimation } from "../../animations/animations";
 
 const ServicesSectionContainer = styled.section`
   padding: var(--p-section) 2rem;
@@ -28,9 +30,13 @@ const ServicesGrid = styled.div`
 
 const ServicesSection = () => {
   console.log(services);
+
   return (
-    <Container id="services" className="fade-in">
-      <MainTitle>خدماتنا</MainTitle>
+    <Container
+      id="services"
+      // className="fade-in"
+    >
+      <MainTitle {...titleAnimation}>خدماتنا</MainTitle>
       <ServicesGrid>
         {services.map((service, index) => (
           <Card

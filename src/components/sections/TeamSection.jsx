@@ -3,9 +3,10 @@ import styled from "styled-components";
 import Card from "../ui/Card";
 import { teamMembers } from "../../assets/data/projects";
 import { Container } from "../ui/container.styles";
-import { SubTitle, Text } from "../common/texts";
+import { MainTitle, SubTitle, Text } from "../common/texts";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
+import { titleAnimation } from "../../animations/animations";
 
 const StlyedSwiper = styled(Swiper)`
   .swiper-pagination-bullet {
@@ -67,8 +68,11 @@ const TeamImage = styled.img`
 
 const TeamSection = () => {
   return (
-    <Container id="team" className="fade-in section">
-      <SectionTitle>فريق العمل</SectionTitle>
+    <Container
+      id="team"
+      // className="fade-in section"
+    >
+      <MainTitle {...titleAnimation}>فريق العمل</MainTitle>
       <StlyedSwiper
         modules={[Pagination, Autoplay]}
         pagination={{ clickable: true }}

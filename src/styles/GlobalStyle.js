@@ -21,12 +21,12 @@ export const GlobalStyle = createGlobalStyle`
     /* line-height: 1.6; */
   }
   :root{
-    --p-section: 100px; 
+    --p-section: 40px; 
     --primary: #ff8c00;
     --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     
   @media (max-width: 992px) {
-    --p-section: 80px;
+    --p-section: 40px;
   }
   @media (max-width: 768px) {
     --p-section: 40px;

@@ -6,6 +6,8 @@ import { contactInfo } from "../../assets/data/projects";
 import { Container } from "../ui/container.styles";
 import { LigntText, MainTitle, SubTitle } from "../common/texts";
 import { FaFacebookF } from "react-icons/fa";
+import { sectionAnimation, titleAnimation } from "../../animations/animations";
+import { motion } from "motion/react";
 
 const ContactGrid = styled.div`
   /* display: grid; */
@@ -59,7 +61,7 @@ const ContactItem = styled.div`
   }
 `;
 
-const ContactFormWrapper = styled.form`
+const ContactFormWrapper = styled(motion.form)`
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -216,10 +218,13 @@ const ContactItems = styled.div`
 `;
 const ContactSection = () => {
   return (
-    <Container id="contact" className="fade-in section">
-      <MainTitle>تواصل معنا</MainTitle>
+    <Container
+      id="contact"
+      //  className="fade-in section"
+    >
+      <MainTitle {...titleAnimation}>تواصل معنا</MainTitle>
       <ContactGrid>
-        <ContactFormWrapper>
+        <ContactFormWrapper {...sectionAnimation}>
           <FormBox>
             <FormTitle>ارسل لنا رسالة</FormTitle>
 

@@ -9,6 +9,7 @@ import ContactSection from "./components/sections/ContactSection";
 import BackgroundEffects from "./components/common/BackgroundEffects";
 import ScrollAnimations from "./components/common/ScrollAnimations";
 import Navbar from "./components/ui/navbar/Navbar";
+import AboutUsSection from "./components/sections/AboutUsSection";
 
 function App() {
   useEffect(() => {
@@ -19,10 +20,11 @@ function App() {
 
   return (
     <>
-      <BackgroundEffects />
+      {/* <BackgroundEffects /> */}
       <Navbar />
       <main>
         <HeroSection />
+        <AboutUsSection />
         <ServicesSection />
         <ProjectsSection />
         <ClientsSection />
@@ -30,7 +32,7 @@ function App() {
         <ContactSection />
       </main>
       <Footer />
-      <ScrollAnimations />
+      {/* <ScrollAnimations /> */}
     </>
   );
 }

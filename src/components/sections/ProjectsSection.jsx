@@ -10,6 +10,8 @@ import { Pagination, Autoplay } from "swiper/modules";
 // استيراد ملفات CSS الخاصة بـ Swiper
 import "swiper/css";
 import "swiper/css/pagination";
+import { sectionAnimation, titleAnimation } from "../../animations/animations";
+import { motion } from "motion/react";
 
 const StlyedSwiper = styled(Swiper)`
   .swiper-pagination-bullet {
@@ -29,43 +31,48 @@ const StlyedSwiper = styled(Swiper)`
 
 const ProjectsSection = () => {
   return (
-    <Container id="projects" className="fade-in">
-      <MainTitle>مشاريعنا المختارة</MainTitle>
+    <Container
+      id="projects"
+      // className="fade-in"
+    >
+      <MainTitle {...titleAnimation}>مشاريعنا المختارة</MainTitle>
 
       {/* إعداد Swiper */}
-      <StlyedSwiper
-        modules={[Pagination, Autoplay]}
-        pagination={{ clickable: true }}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: true, // تعطيل التنقل التلقائي عند تفاعل المستخدم
-        }}
-        breakpoints={{
-          992: {
-            slidesPerView: 3,
-            spaceBetween: 15,
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 15,
-          },
-          0: {
-            slidesPerView: 1,
-            spaceBetween: 10,
-          },
-        }}
-      >
-        {featuredProjects.map((project, index) => (
-          <SwiperSlide key={index}>
-            <ProjectCard
-              icon={project.icon}
-              title={project.title}
-              description={project.description}
-              details={project.details}
-            />
-          </SwiperSlide>
-        ))}
-      </StlyedSwiper>
+      <motion.div {...sectionAnimation}>
+        <StlyedSwiper
+          modules={[Pagination, Autoplay]}
+          pagination={{ clickable: true }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: true, // تعطيل التنقل التلقائي عند تفاعل المستخدم
+          }}
+          breakpoints={{
+            992: {
+              slidesPerView: 3,
+              spaceBetween: 15,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 15,
+            },
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+          }}
+        >
+          {featuredProjects.map((project, index) => (
+            <SwiperSlide key={index}>
+              <ProjectCard
+                icon={project.icon}
+                title={project.title}
+                description={project.description}
+                details={project.details}
+              />
+            </SwiperSlide>
+          ))}
+        </StlyedSwiper>
+      </motion.div>
     </Container>
   );
 };

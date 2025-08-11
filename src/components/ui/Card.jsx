@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { SubTitle, Text } from "../common/texts";
+import { motion } from "motion/react";
 
-const ServiceIcon = styled.div`
+const ServiceIcon = styled(motion.div)`
   font-size: 2.5rem;
-  color: #ff8c00;
   width: 80px;
   height: 80px;
+  /* color: #ff8c00; */
+
   border-radius: 50%;
   margin: auto;
   background-color: #f5f5f5;
@@ -19,7 +21,7 @@ const ServiceIcon = styled.div`
   /* margin-left: auto;
   margin-right: auto; */
 `;
-const StyledCard = styled.div`
+const StyledCard = styled(motion.div)`
   text-align: center;
   background-color: #fff;
   padding: 2rem;
@@ -53,14 +55,29 @@ const StyledCard = styled.div`
   &:hover {
     ${ServiceIcon} {
       background-color: var(--primary);
-      color: #fff;
+      color: #fff !important;
     }
   }
 `;
 const Card = ({ icon, title, description, children, ...props }) => {
   return (
-    <StyledCard {...props}>
-      {icon && <ServiceIcon>{icon}</ServiceIcon>}
+    <StyledCard
+      {...props}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.2, ease: "linear" }}
+      viewport={{ once: true }}
+    >
+      {icon && (
+        <ServiceIcon
+          initial={{ opacity: 1, scale: 1, color: "#000" }}
+          whileInView={{ opacity: 1, scale: 1, color: "#ff8c00" }}
+          transition={{ duration: 0.5, delay: 0.3, ease: "linear" }}
+          // viewport={{ once: true }}
+        >
+          {icon}
+        </ServiceIcon>
+      )}
       {title && <SubTitle>{title}</SubTitle>}
       {description && <Text>{description}</Text>}
       {children}

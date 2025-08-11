@@ -1,6 +1,7 @@
+import { motion } from "motion/react";
 import styled from "styled-components";
 
-export const MainTitle = styled.h1`
+export const MainTitle = styled(motion.h1)`
   font-size: var(--big-text);
   text-align: center;
   margin-bottom: 3rem;
@@ -18,17 +19,17 @@ export const MainTitle = styled.h1`
     background: linear-gradient(45deg, #ff8c00, #ff6600);
   }
 `;
-export const SubTitle = styled.h2`
+export const SubTitle = styled(motion.h2)`
   font-size: var(--normal-text);
   /* margin-bottom: 1rem; */
   color: #000;
   color: #ff8c00;
 `;
-export const Text = styled.div`
+export const Text = styled(motion.div)`
   font-size: var(--small-text);
   color: #000;
 `;
-export const LigntText = styled.div`
+export const LigntText = styled(motion.div)`
   font-size: var(--min-text);
   color: #555;
 `;
