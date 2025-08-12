@@ -40,6 +40,7 @@ const ServicesSection = () => {
       <ServicesGrid>
         {services.map((service, index) => (
           <Card
+            anim
             key={index}
             icon={service.icon}
             title={service.title}

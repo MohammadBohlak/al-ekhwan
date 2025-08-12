@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { SubTitle, Text } from "../common/texts";
 import { motion } from "motion/react";
+import { cardAnimation } from "../../animations/animations";
 
 const ServiceIcon = styled(motion.div)`
   font-size: 2.5rem;
@@ -59,15 +60,10 @@ const StyledCard = styled(motion.div)`
     }
   }
 `;
-const Card = ({ icon, title, description, children, ...props }) => {
+const Card = ({ icon, title, description, anim, children, ...props }) => {
+  const animation = anim ? cardAnimation : {};
   return (
-    <StyledCard
-      {...props}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.2, ease: "linear" }}
-      viewport={{ once: true }}
-    >
+    <StyledCard {...props} {...animation}>
       {icon && (
         <ServiceIcon
           initial={{ opacity: 1, scale: 1, color: "#000" }}

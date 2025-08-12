@@ -6,7 +6,8 @@ import { Container } from "../ui/container.styles";
 import { MainTitle, SubTitle, Text } from "../common/texts";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
-import { titleAnimation } from "../../animations/animations";
+import { sectionAnimation, titleAnimation } from "../../animations/animations";
+import { motion, MotionConfig } from "motion/react";
 
 const StlyedSwiper = styled(Swiper)`
   .swiper-pagination-bullet {
@@ -73,42 +74,44 @@ const TeamSection = () => {
       // className="fade-in section"
     >
       <MainTitle {...titleAnimation}>فريق العمل</MainTitle>
-      <StlyedSwiper
-        modules={[Pagination, Autoplay]}
-        pagination={{ clickable: true }}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: true, // تعطيل التنقل التلقائي عند تفاعل المستخدم
-        }}
-        breakpoints={{
-          992: {
-            slidesPerView: 3,
-            spaceBetween: 15,
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 15,
-          },
-          0: {
-            slidesPerView: 1,
-            spaceBetween: 10,
-          },
-        }}
-      >
-        {teamMembers.map((member, index) => (
-          <SwiperSlide key={index}>
-            <Card key={index}>
-              <TeamImage
-                style={{ color: "#000" }}
-                src={member.image}
-                alt={member.name}
-              />
-              <SubTitle>{member.name}</SubTitle>
-              <Text>{member.position}</Text>
-            </Card>
-          </SwiperSlide>
-        ))}
-      </StlyedSwiper>
+      <motion.div {...sectionAnimation}>
+        <StlyedSwiper
+          modules={[Pagination, Autoplay]}
+          pagination={{ clickable: true }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: true, // تعطيل التنقل التلقائي عند تفاعل المستخدم
+          }}
+          breakpoints={{
+            992: {
+              slidesPerView: 3,
+              spaceBetween: 15,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 15,
+            },
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+          }}
+        >
+          {teamMembers.map((member, index) => (
+            <SwiperSlide key={index}>
+              <Card key={index}>
+                <TeamImage
+                  style={{ color: "#000" }}
+                  src={member.image}
+                  alt={member.name}
+                />
+                <SubTitle>{member.name}</SubTitle>
+                <Text>{member.position}</Text>
+              </Card>
+            </SwiperSlide>
+          ))}
+        </StlyedSwiper>
+      </motion.div>
     </Container>
   );
 };
