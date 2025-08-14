@@ -7,7 +7,7 @@ import { MainTitle, SubTitle, Text } from "../common/texts";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { sectionAnimation, titleAnimation } from "../../animations/animations";
-import { motion, MotionConfig } from "motion/react";
+import { motion } from "motion/react";
 
 const StlyedSwiper = styled(Swiper)`
   .swiper-pagination-bullet {

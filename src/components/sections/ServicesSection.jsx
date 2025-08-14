@@ -4,7 +4,6 @@ import Card from "../ui/Card";
 import { services } from "../../assets/data/projects";
 import { MainTitle } from "../common/texts";
 import { Container } from "../ui/container.styles";
-import { motion } from "motion/react";
 import { titleAnimation } from "../../animations/animations";
 
 const ServicesSectionContainer = styled.section`

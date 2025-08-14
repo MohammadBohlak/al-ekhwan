@@ -1,16 +1,19 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import { clients } from "../../assets/data/projects";
 import { Container } from "../ui/container.styles";
-import { MainTitle } from "../common/texts";
+import { MainTitle, Text } from "../common/texts";
 import { sectionAnimation, titleAnimation } from "../../animations/animations";
 import { motion } from "motion/react";
+import Marquee from "react-fast-marquee";
 
 const ClientsSectionContainer = styled(motion.section)`
   padding: var(--p-section) 2rem;
   padding-bottom: 0px;
   /* max-width: 1200px; */
   margin: 0 auto;
+  direction: ltr !important;
+  position: relative;
 `;
 
 const SectionTitle = styled.h2`
@@ -31,78 +34,70 @@ const SectionTitle = styled.h2`
     background: linear-gradient(45deg, #ff8c00, #ff6600);
   }
 `;
-
-const ClientsSlider = styled.div`
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-`;
-
-const SlideTrack = styled.div`
-  @keyframes scroll {
-    0% {
-      transform: translateX(${(props) => props.$translateX});
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
+const Speed = styled.div`
+  position: absolute;
+  top: -50px;
+  right: 20px;
+  z-index: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 3rem;
-  white-space: nowrap;
-  animation: scroll 40s linear infinite;
-
-  &:hover {
-    animation-play-state: paused;
-  }
 `;
-
-const ClientLink = styled.div`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  img {
-    max-width: 130px;
-    height: auto;
-    opacity: 1;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-
-  &:hover img {
-    /* opacity: 1; */
-    /* transform: scale(1.05); */
-  }
+const BtnSpeed = styled.button`
+  background-color: #ff8c00;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px;
+  font-size: 16px;
 `;
 
 const ClientsSection = () => {
-  const translateX = clients.length * 10;
+  const [repeatCount, setRepeatCount] = useState(3);
+  const [speed, setSpeed] = useState(200);
+  useEffect(() => {
+    const updateRepeatCount = () => {
+      const screenWidth = window.innerWidth;
+      const logoWidth = 130 + 30; // image width + margin
+      const visibleCount = Math.ceil(screenWidth / logoWidth);
+      setRepeatCount(visibleCount * 2); // مضاعفة العدد لتفادي الفراغ
+    };
+
+    updateRepeatCount();
+    window.addEventListener("resize", updateRepeatCount);
+    return () => window.removeEventListener("resize", updateRepeatCount);
+  }, []);
+
+  const repeatedClients = Array(repeatCount).fill(clients).flat();
+
   return (
-    <Container
-      id="clients"
-      //  className="fade-in section"
-    >
+    <Container id="clients">
       <MainTitle {...titleAnimation}>عملاؤنا المميزون</MainTitle>
 
-      <ClientsSectionContainer
-        {...sectionAnimation}
-        // viewport={{ once: true }}
-      >
-        <ClientsSlider>
-          <SlideTrack $translateX={`${translateX}%`}>
-            {clients.map((client, index) => (
-              <ClientLink
-                key={index}
-                href={client.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src={client.logo} alt={`Client ${index + 1}`} />
-              </ClientLink>
-            ))}
-          </SlideTrack>
-        </ClientsSlider>
+      <ClientsSectionContainer {...sectionAnimation}>
+        <Speed>
+          <Text>{speed}</Text>
+          <div>
+            <BtnSpeed right="0" onClick={() => setSpeed(speed + 25)}>
+              +
+            </BtnSpeed>
+            <BtnSpeed right="50px" onClick={() => setSpeed(speed - 25)}>
+              -
+            </BtnSpeed>
+          </div>
+        </Speed>
+        <Marquee speed={speed} gradient={false} pauseOnHover={true}>
+          {repeatedClients.map((client, index) => (
+            <img
+              key={index}
+              style={{ width: "130px", margin: "0 15px" }}
+              src={client.logo}
+              alt={`Client ${index + 1}`}
+            />
+          ))}
+        </Marquee>
       </ClientsSectionContainer>
     </Container>
   );

@@ -5,7 +5,7 @@ export const MainTitle = styled(motion.h1)`
   font-size: var(--big-text);
   text-align: center;
   margin-bottom: 3rem;
-  color: #ff8c00;
+  color: ${({ $color }) => ($color ? $color : "var(--primary)")};
   position: relative;
 
   &::after {
@@ -16,7 +16,9 @@ export const MainTitle = styled(motion.h1)`
     transform: translateX(-50%);
     width: 100px;
     height: 2px;
-    background: linear-gradient(45deg, #ff8c00, #ff6600);
+    /* background: linear-gradient(45deg, #ffffff, transparent); */
+    background: ${({ $color }) =>
+      $color ? $color : "linear-gradient(45deg, #ff8c00, #ff6600)"};
   }
 `;
 export const SubTitle = styled(motion.h2)`
@@ -28,6 +30,7 @@ export const SubTitle = styled(motion.h2)`
 export const Text = styled(motion.div)`
   font-size: var(--small-text);
   color: #000;
+  color: ${({ $color }) => ($color ? $color : "#000")};
 `;
 export const LigntText = styled(motion.div)`
   font-size: var(--min-text);

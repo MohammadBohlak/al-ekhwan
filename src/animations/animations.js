@@ -1,5 +1,3 @@
-import { scale } from "motion";
-
 export const titleAnimation = {
   initial: { scale: 0, y: -50 },
   whileInView: { scale: 1, y: 0 },

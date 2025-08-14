@@ -10,6 +10,7 @@ import BackgroundEffects from "./components/common/BackgroundEffects";
 import ScrollAnimations from "./components/common/ScrollAnimations";
 import Navbar from "./components/ui/navbar/Navbar";
 import AboutUsSection from "./components/sections/AboutUsSection";
+import Ourvision from "./components/sections/Ourvision";
 
 function App() {
   useEffect(() => {
@@ -25,6 +26,7 @@ function App() {
       <main>
         <HeroSection />
         <AboutUsSection />
+        <Ourvision />
         <ServicesSection />
         <ProjectsSection />
         <ClientsSection />
