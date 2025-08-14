@@ -11,6 +11,7 @@ import ScrollAnimations from "./components/common/ScrollAnimations";
 import Navbar from "./components/ui/navbar/Navbar";
 import AboutUsSection from "./components/sections/AboutUsSection";
 import Ourvision from "./components/sections/Ourvision";
+import ScrollCircle from "./components/ui/ScrollCircle";
 
 function App() {
   useEffect(() => {
@@ -24,6 +25,7 @@ function App() {
       {/* <BackgroundEffects /> */}
       <Navbar />
       <main>
+        <ScrollCircle />
         <HeroSection />
         <AboutUsSection />
         <Ourvision />

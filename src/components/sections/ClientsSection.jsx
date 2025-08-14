@@ -8,7 +8,7 @@ import { motion } from "motion/react";
 import Marquee from "react-fast-marquee";
 
 const ClientsSectionContainer = styled(motion.section)`
-  padding: var(--p-section) 2rem;
+  /* padding: var(--p-section) 0; */
   padding-bottom: 0px;
   /* max-width: 1200px; */
   margin: 0 auto;
@@ -73,11 +73,13 @@ const ClientsSection = () => {
   const repeatedClients = Array(repeatCount).fill(clients).flat();
 
   return (
-    <Container id="clients">
-      <MainTitle {...titleAnimation}>عملاؤنا المميزون</MainTitle>
+    <>
+      <Container id="clients">
+        <MainTitle {...titleAnimation}>عملاؤنا المميزون</MainTitle>
+      </Container>
 
       <ClientsSectionContainer {...sectionAnimation}>
-        <Speed>
+        {/* <Speed>
           <Text>{speed}</Text>
           <div>
             <BtnSpeed right="0" onClick={() => setSpeed(speed + 25)}>
@@ -87,8 +89,8 @@ const ClientsSection = () => {
               -
             </BtnSpeed>
           </div>
-        </Speed>
-        <Marquee speed={speed} gradient={false} pauseOnHover={true}>
+        </Speed> */}
+        <Marquee speed={70} gradient={false} pauseOnHover={true}>
           {repeatedClients.map((client, index) => (
             <img
               key={index}
@@ -99,7 +101,7 @@ const ClientsSection = () => {
           ))}
         </Marquee>
       </ClientsSectionContainer>
-    </Container>
+    </>
   );
 };
 
