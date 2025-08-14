@@ -246,13 +246,13 @@ const AboutUsSection = () => {
         </AboutRight>
         <AboutLeft>
           <Images>
-            <Image className="i1" />
-            <Image className="i2" />
+            <Image {...sectionAnimation} className="i1" />
+            <Image {...sectionAnimation} className="i2" />
           </Images>
           <Images>
             {" "}
-            <Image className="i3" />
-            <Image className="i4" />
+            <Image {...sectionAnimation} className="i3" />
+            <Image {...sectionAnimation} className="i4" />
           </Images>
         </AboutLeft>
       </AboutContenet>
