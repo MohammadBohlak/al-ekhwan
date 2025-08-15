@@ -28,14 +28,13 @@ const CountersContainer = styled(motion.div)`
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
-    gap: 50px;
+    /* gap: 50px; */
   }
 `;
 
 const Counter = styled(motion.div)`
   background-color: #ffffff;
   border: 1px solid var(--primary);
-  border-radius: 10px;
   padding: 30px;
   margin: 0 20px;
   text-align: center;
@@ -45,6 +44,7 @@ const Counter = styled(motion.div)`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  border-radius: 50px 0 50px 0;
 `;
 
 const CounterNumber = styled.div`
@@ -57,42 +57,29 @@ const CounterNumber = styled.div`
   align-items: center;
   font-family: sans-serif;
 `;
-
-const CounterLabel = styled.div`
-  font-size: 22px;
-  font-weight: 700;
-  /* margin-top: 8px; */
-`;
-
 const StyledAboutUs = styled(Container)`
   /*  */
 `;
 
 const AboutContenet = styled(motion.div)`
   display: grid;
-  /* display: flex; */
-  max-height: 500px;
+  max-height: 1000px;
   grid-template-columns: 1fr 1fr;
-
   gap: 20px;
   @media (max-width: 992px) {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 500px;
-    max-height: 2000px;
+    max-height: initial;
     justify-content: center;
     gap: 50px;
   }
   @media (max-width: 768px) {
-    /* text-align: center; */
     text-align-last: center;
   }
 `;
 const AboutRight = styled(motion.div)`
   .description {
-    /* width: 80%; */
-    /* margin: 0 auto; */
     text-align: justify;
-    /* text-align-last: center; */
   }
 `;
 const AboutLeft = styled(motion.div)`
@@ -227,14 +214,6 @@ const AboutUsSection = () => {
                 <motion.span style={{ fontSize: "40px" }}>+</motion.span>
               </CounterNumber>
               <Text>سنوات الخبرة</Text>
-            </Counter>
-
-            <Counter {...sectionAnimation}>
-              <CounterNumber>
-                {displayProjects}
-                <motion.span style={{ fontSize: "40px" }}>+</motion.span>
-              </CounterNumber>
-              <Text>الأعمال المكتملة</Text>
             </Counter>
           </CountersContainer>
 
