@@ -28,8 +28,6 @@ const ServicesGrid = styled.div`
 `;
 
 const ServicesSection = () => {
-  console.log(services);
-
   return (
     <Container
       id="services"

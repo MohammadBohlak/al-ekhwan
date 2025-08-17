@@ -1,12 +1,15 @@
-import React from 'react'
-import HeroSlider from '../sliders/HeroSlider'
+import React, { useContext } from "react";
+import HeroSlider from "../sliders/HeroSlider";
+import { DataContext } from "../../App";
 
 function HeroSection() {
-    return (
-        <>
-        <HeroSlider></HeroSlider>
-        </>
-    )
+  const data = useContext(DataContext);
+  const projects = data.hero;
+  return (
+    <>
+      <HeroSlider projects={projects}></HeroSlider>
+    </>
+  );
 }
 
-export default HeroSection
+export default HeroSection;

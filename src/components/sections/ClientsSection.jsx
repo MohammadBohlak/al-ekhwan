@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
-import { clients } from "../../assets/data/projects";
+// import { clients } from "../../assets/data/projects";
 import { Container } from "../ui/container.styles";
 import { MainTitle, Text } from "../common/texts";
 import { sectionAnimation, titleAnimation } from "../../animations/animations";
 import { motion } from "motion/react";
 import Marquee from "react-fast-marquee";
+import { DataContext, url } from "../../App";
 
 const ClientsSectionContainer = styled(motion.section)`
   /* padding: var(--p-section) 0; */
@@ -56,7 +57,7 @@ const BtnSpeed = styled.button`
 
 const ClientsSection = () => {
   const [repeatCount, setRepeatCount] = useState(3);
-  const [speed, setSpeed] = useState(200);
+  const { clients } = useContext(DataContext);
   useEffect(() => {
     const updateRepeatCount = () => {
       const screenWidth = window.innerWidth;
@@ -95,7 +96,7 @@ const ClientsSection = () => {
             <img
               key={index}
               style={{ width: "130px", margin: "0 15px" }}
-              src={client.logo}
+              src={`${url}${client.logo}`}
               alt={`Client ${index + 1}`}
             />
           ))}

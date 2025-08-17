@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import styled from "styled-components";
 import {
   motion,
@@ -14,6 +14,7 @@ import img1 from "../../assets/images/aboutSection/1.jpg";
 import img2 from "../../assets/images/aboutSection/2.jpg";
 import img3 from "../../assets/images/aboutSection/3.jpg";
 import img4 from "../../assets/images/aboutSection/4.jpg";
+import { DataContext } from "../../App";
 // ===== Styled Components =====
 
 const Header = styled.header`
@@ -192,6 +193,7 @@ const AboutUsSection = () => {
     }
   }, [inView, targets, yearsMV, projectsMV]);
 
+  const data = useContext(DataContext);
   return (
     <StyledAboutUs>
       <Header>

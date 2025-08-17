@@ -65,11 +65,11 @@ import { FaLocationDot } from "react-icons/fa6";
 
 // المشاريع
 export const projects = [
-  { name: "مطبعة دار جلَّق", image: darJellaqImg },
-  { name: "سلمى لصناعة الزيوت", image: salmaImg },
-  { name: "مجموعة المتين", image: almatinImg },
-  { name: "ستارش لصناعة النشاء", image: starchImg },
-  { name: "الباتيك لصناعة البيتون", image: baticImg },
+  { id: 0, name: "مطبعة دار جلَّق", image: darJellaqImg },
+  { id: 1, name: "سلمى لصناعة الزيوت", image: salmaImg },
+  { id: 2, name: "مجموعة المتين", image: almatinImg },
+  { id: 3, name: "ستارش لصناعة النشاء", image: starchImg },
+  { id: 4, name: "الباتيك لصناعة البيتون", image: baticImg },
 ];
 export const services = [
   {
