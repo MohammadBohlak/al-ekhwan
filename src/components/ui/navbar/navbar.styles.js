@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const NavbarContainer = styled.header`
   position: fixed;
   top: 0;
+  height: var(--h-navbar);
   width: 100%;
   /* background: rgba(0, 0, 0, 0.9); */
   /* background: rgba(255, 255, 255, 0.9); */

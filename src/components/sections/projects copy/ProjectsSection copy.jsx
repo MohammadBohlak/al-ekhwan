@@ -1,16 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import ProjectCard from "../ui/ProjectCard";
-import { featuredProjects } from "../../assets/data/projects";
-import { Container } from "../ui/container.styles";
-import { MainTitle } from "../common/texts";
+import ProjectCard from "../../ui/ProjectCard";
+import { featuredProjects } from "../../../assets/data/projects";
+import { Container } from "../../ui/container.styles";
+import { MainTitle } from "../../common/texts";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 
 // استيراد ملفات CSS الخاصة بـ Swiper
 import "swiper/css";
 import "swiper/css/pagination";
-import { sectionAnimation, titleAnimation } from "../../animations/animations";
+import {
+  sectionAnimation,
+  titleAnimation,
+} from "../../../animations/animations";
 import { motion } from "motion/react";
 
 const StlyedSwiper = styled(Swiper)`
@@ -21,8 +24,6 @@ const StlyedSwiper = styled(Swiper)`
   direction: ltr;
   .swiper-slide {
     direction: rtl;
-    /* width: 100% !important; */
-    /* margin: 0 !important; */
     @media (max-width: 768px) {
       text-align: center;
     }

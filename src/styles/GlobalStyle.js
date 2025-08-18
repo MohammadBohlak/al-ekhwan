@@ -22,6 +22,7 @@ export const GlobalStyle = createGlobalStyle`
     /* line-height: 1.6; */
   }
   :root{
+    --h-navbar: 80px;
     --p-section: 40px; 
     --primary: #ff8c00;
     --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);

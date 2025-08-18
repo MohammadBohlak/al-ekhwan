@@ -4,7 +4,9 @@ import { DataContext } from "../../App";
 
 function HeroSection() {
   const data = useContext(DataContext);
-  const projects = data.hero;
+  // console.log(data);
+  const projects = { images: data.hero, url: data.base_url };
+  // console.log("pojects", projects);
   return (
     <>
       <HeroSlider projects={projects}></HeroSlider>

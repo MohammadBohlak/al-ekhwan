@@ -1,4 +1,5 @@
 export const data = {
+  base_url: "https://jaberissa.pythonanywhere.com",
   hero: [
     {
       id: 5,
@@ -59,6 +60,7 @@ export const data = {
       short_description:
         "شركة باتيك لصناعة البيتون شركة باتيك لصناعة البيتون شركة باتيك لصناعة البيتون شركة باتيك لصناعة البيتون",
       area: "3000",
+      location: "المدينة الصناعية بحسياء",
       project_type: "commercial",
       order: 0,
     },
@@ -91,6 +93,7 @@ export const data = {
       cover_image: "/media/projects/covers/7.jpeg",
       short_description: "ِشركة ستارش لصناعة النشاء ِشركة ستارش لصناعة النشاء",
       area: "2000",
+      location: "المدينة الصناعية بحسياء",
       project_type: "commercial",
       order: 1,
     },
@@ -118,6 +121,7 @@ export const data = {
       short_description:
         "شركة سلمى لصناعة الزيوت شركة سلمى لصناعة الزيوت شركة سلمى لصناعة الزيوت شركة سلمى لصناعة الزيوت",
       area: "2000",
+      location: "المدينة الصناعية بحسياء",
       project_type: "commercial",
       order: 2,
     },
@@ -139,6 +143,7 @@ export const data = {
       short_description:
         "ِشركة حاكمي للرخام ِشركة حاكمي للرخام ِشركة حاكمي للرخام ِشركة حاكمي للرخام",
       area: "500",
+      location: "المدينة الصناعية بحسياء",
       project_type: "commercial",
       order: 3,
     },
@@ -160,6 +165,7 @@ export const data = {
       short_description:
         "تصميم و تنفيذ عيادة طبيب تصميم و تنفيذ عيادة طبيب تصميم و تنفيذ عيادة طبيب",
       area: "200",
+      location: "حمص",
       project_type: "finishing",
       order: 4,
     },
@@ -187,6 +193,7 @@ export const data = {
       short_description:
         "تصميم شقة سكنية تصميم شقة سكنية تصميم شقة سكنية تصميم شقة سكنية",
       area: "200",
+      location: "حمص",
       project_type: "design",
       order: 5,
     },
@@ -201,6 +208,7 @@ export const data = {
       cover_image: "/media/projects/covers/2.jpeg",
       short_description: "أعمال هنغارات أعمال هنغارات أعمال هنغارات",
       area: "2000",
+      location: "المدينة الصناعية بحسياء",
       project_type: "commercial",
       order: 6,
     },

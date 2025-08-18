@@ -112,44 +112,185 @@ export const services = [
 
 export const featuredProjects = [
   {
-    icon: "🏘️",
-    title: "مجمع الأخوان السكني",
-    description:
-      "مشروع سكني متكامل يضم 150 وحدة سكنية بمساحات متنوعة ومرافق حديثة",
-    details: "المساحة: 50,000 م² | الموقع: شمال المدينة",
+    id: 7,
+    images: [
+      {
+        image: "/media/projects/gallery/4.jpg",
+      },
+      {
+        image: "/media/projects/gallery/3.jpg",
+      },
+      {
+        image: "/media/projects/gallery/2.jpg",
+      },
+      {
+        image: "/media/projects/gallery/5.jpg",
+      },
+      {
+        image: "/media/projects/gallery/6.jpg",
+      },
+      {
+        image: "/media/projects/gallery/1.jpg",
+      },
+    ],
+    title: "شركة باتيك لصناعة البيتون",
+    cover_image: "/media/projects/covers/batec.jpg",
+    short_description:
+      "شركة باتيك لصناعة البيتون شركة باتيك لصناعة البيتون شركة باتيك لصناعة البيتون شركة باتيك لصناعة البيتون",
+    area: "3000",
+    location: "المدينة الصناعية بحسياء",
+    project_type: "commercial",
+    order: 0,
   },
   {
-    icon: "🏢",
-    title: "برج الأخوان التجاري",
-    description: "برج تجاري حديث من 20 طابق يضم مكاتب ومحلات تجارية ومطاعم",
-    details: "الارتفاع: 80 متر | المساحة: 25,000 م²",
+    id: 1,
+    images: [
+      {
+        image: "/media/projects/gallery/6.jpeg",
+      },
+      {
+        image: "/media/projects/gallery/1.jpeg",
+      },
+      {
+        image: "/media/projects/gallery/2.jpeg",
+      },
+      {
+        image: "/media/projects/gallery/3.jpeg",
+      },
+      {
+        image: "/media/projects/gallery/4.jpeg",
+      },
+      {
+        image: "/media/projects/gallery/5.jpeg",
+      },
+      {
+        image: "/media/projects/gallery/6_iWkMzCU.jpeg",
+      },
+    ],
+    title: "ِشركة ستارش لصناعة النشاء",
+    cover_image: "/media/projects/covers/7.jpeg",
+    short_description: "ِشركة ستارش لصناعة النشاء ِشركة ستارش لصناعة النشاء",
+    area: "2000",
+    location: "المدينة الصناعية بحسياء",
+    project_type: "commercial",
+    order: 1,
   },
   {
-    icon: "🏭",
-    title: "المجمع الصناعي",
-    description: "مجمع صناعي متطور يضم مصانع ومستودعات بمواصفات عالمية",
-    details: "المساحة: 100,000 م² | الموقع: المنطقة الصناعية",
+    id: 2,
+    images: [
+      {
+        image: "/media/projects/gallery/1_mfkHYLH.jpeg",
+      },
+      {
+        image: "/media/projects/gallery/2_CCqKh0b.jpeg",
+      },
+      {
+        image: "/media/projects/gallery/3_zXRmWnt.jpeg",
+      },
+      {
+        image: "/media/projects/gallery/5_Y9tDpfK.jpeg",
+      },
+      {
+        image: "/media/projects/gallery/6_YOzros0.jpeg",
+      },
+    ],
+    title: "شركة سلمى لصناعة الزيوت",
+    cover_image: "/media/projects/covers/4.jpeg",
+    short_description:
+      "شركة سلمى لصناعة الزيوت شركة سلمى لصناعة الزيوت شركة سلمى لصناعة الزيوت شركة سلمى لصناعة الزيوت",
+    area: "2000",
+    location: "المدينة الصناعية بحسياء",
+    project_type: "commercial",
+    order: 2,
   },
   {
-    icon: "🏥",
-    title: "مستشفى الأخوان",
-    description: "مستشفى حديث بسعة 200 سرير ومجهز بأحدث المعدات الطبية",
-    details: "المساحة: 30,000 م² | عدد الطوابق: 8",
+    id: 6,
+    images: [
+      {
+        image: "/media/projects/gallery/1_BsnKVzf.jpeg",
+      },
+      {
+        image: "/media/projects/gallery/3_3IrPWhm.jpeg",
+      },
+      {
+        image: "/media/projects/gallery/4_I22jlJT.jpeg",
+      },
+    ],
+    title: "ِشركة حاكمي للرخام",
+    cover_image: "/media/projects/covers/2_1yRyLzT.jpeg",
+    short_description:
+      "ِشركة حاكمي للرخام ِشركة حاكمي للرخام ِشركة حاكمي للرخام ِشركة حاكمي للرخام",
+    area: "500",
+    location: "المدينة الصناعية بحسياء",
+    project_type: "commercial",
+    order: 3,
   },
   {
-    icon: "🏫",
-    title: "مجمع الأخوان التعليمي",
-    description: "مجمع تعليمي شامل يضم مدارس وجامعة بتجهيزات تقنية متطورة",
-    details: "المساحة: 80,000 م² | الطلاب: 5000",
+    id: 4,
+    images: [
+      {
+        image: "/media/projects/gallery/2_kTK2p8A.jpeg",
+      },
+      {
+        image: "/media/projects/gallery/3_mDCTIVT.jpeg",
+      },
+      {
+        image: "/media/projects/gallery/4_zvjsckO.jpeg",
+      },
+    ],
+    title: "تصميم و تنفيذ عيادة طبيب",
+    cover_image: "/media/projects/covers/1.jpeg",
+    short_description:
+      "تصميم و تنفيذ عيادة طبيب تصميم و تنفيذ عيادة طبيب تصميم و تنفيذ عيادة طبيب",
+    area: "200",
+    location: "حمص",
+    project_type: "finishing",
+    order: 4,
   },
   {
-    icon: "🛣️",
-    title: "طريق الأخوان السريع",
-    description: "طريق سريع بطول 50 كم يربط بين المدن مع جسور وأنفاق حديثة",
-    details: "الطول: 50 كم | عدد المسارات: 6",
+    id: 5,
+    images: [
+      {
+        image: "/media/projects/gallery/2_3fgvqvE.jpeg",
+      },
+      {
+        image: "/media/projects/gallery/3_e0bxlAb.jpeg",
+      },
+      {
+        image: "/media/projects/gallery/5_eT9gSc8.jpeg",
+      },
+      {
+        image: "/media/projects/gallery/6_IvI63kV.jpeg",
+      },
+      {
+        image: "/media/projects/gallery/7.jpeg",
+      },
+    ],
+    title: "تصميم شقة سكنية",
+    cover_image: "/media/projects/covers/1_ctPuQqx.jpeg",
+    short_description:
+      "تصميم شقة سكنية تصميم شقة سكنية تصميم شقة سكنية تصميم شقة سكنية",
+    area: "200",
+    location: "حمص",
+    project_type: "design",
+    order: 5,
+  },
+  {
+    id: 3,
+    images: [
+      {
+        image: "/media/projects/gallery/1_RsnnItT.jpeg",
+      },
+    ],
+    title: "أعمال هنغارات",
+    cover_image: "/media/projects/covers/2.jpeg",
+    short_description: "أعمال هنغارات أعمال هنغارات أعمال هنغارات",
+    area: "2000",
+    location: "المدينة الصناعية بحسياء",
+    project_type: "commercial",
+    order: 6,
   },
 ];
-
 // export const clients = [
 //   { logo: require('./images/logo_almatin.png'), url: "https://client1.com" },
 //   { logo: require('./images/batic-logo.png'), url: "https://client2.com" },
