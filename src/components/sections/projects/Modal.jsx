@@ -1,5 +1,5 @@
 // src/components/ui/Modal.jsx
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { motion } from "motion/react";
 import { LightText, SubTitle, Text } from "../../common/texts";
@@ -8,6 +8,7 @@ import { Pagination } from "swiper/modules";
 import { SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
+import { DataContext } from "../../../App";
 // ستايلات نافذة العرض المنبثقة
 const Overlay = styled.div`
   position: fixed;
@@ -84,6 +85,8 @@ const SwiperContainer = styled.div`
 export default function Modal({ isOpen, onClose, selectedProject, children }) {
   if (!isOpen) return null;
 
+  const { url } = useContext(DataContext);
+
   return (
     <Overlay onClick={onClose}>
       <ModalContent
@@ -134,7 +137,7 @@ export default function Modal({ isOpen, onClose, selectedProject, children }) {
             {selectedProject.images.map((img, idx) => (
               <SwiperSlide key={idx}>
                 <ProjectImage
-                  src={`https://jaberissa.pythonanywhere.com/${img.image}`}
+                  src={`${url + img.image}`}
                   alt={`{title} - صورة ${idx + 1}`}
                   style={{ width: "100%", borderRadius: "4px" }}
                 />

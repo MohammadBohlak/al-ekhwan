@@ -125,7 +125,6 @@ const Overlay = styled(motion.div)`
 
 const Drawer = styled(motion.div)`
   position: absolute;
-  /* position: fixed; */
   top: var(--h-navbar);
   left: 0;
   width: 100%;
@@ -288,30 +287,8 @@ const Navbar = () => {
                 ].map((item) => (
                   <DrawerItem key={item.href} variants={itemVariants}>
                     <DrawerNavLink
-                      // href={item.href}
-                      // onClick={() => {
-                      //   setDrawerOpen(false);
-                      // }}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        const section = document.querySelector(item.href);
-                        if (!section) return;
-
-                        const observer = new IntersectionObserver(
-                          (entries, observerInstance) => {
-                            if (entries[0].isIntersecting) {
-                              setDrawerOpen(false);
-                              observerInstance.disconnect(); // نوقف المراقبة
-                            }
-                          },
-                          {
-                            threshold: 0.6, // القسم يجب أن يظهر بنسبة 60% على الأقل
-                          }
-                        );
-
-                        observer.observe(section);
-                        section.scrollIntoView({ behavior: "smooth" });
-                      }}
+                      href={item.href}
+                      onClick={() => setDrawerOpen(false)}
                     >
                       {item.label}
                     </DrawerNavLink>

@@ -4,8 +4,8 @@ import styled, { createGlobalStyle } from "styled-components";
 import { FaEye } from "react-icons/fa";
 import { MainTitle, SubTitle } from "../common/texts";
 import { Container } from "../ui/container.styles";
-// import img from "../../assets/images/ourvision/tech.png";
-import img from "../../assets/images/ourvision/technology.png";
+import img from "../../assets/images/ourvision/technologyEdit.png";
+// import img from "../../assets/images/ourvision/technology.png";
 import { sectionAnimation, titleAnimation } from "../../animations/animations";
 import { motion } from "motion/react";
 const VisionSection = styled(Container)`
@@ -46,13 +46,13 @@ const VisionHeader = styled.div`
 
 const VisionContent = styled.div`
   display: flex;
-  align-items: center;
-  /* gap: 100px; */
+  align-items: stretch;
+  gap: 50px;
   width: 100%;
   justify-content: space-between;
   flex-wrap: wrap;
   flex-direction: row-reverse;
-  @media (max-width: 992px) {
+  @media (max-width: 1200px) {
     flex-direction: column;
   }
 `;
@@ -60,7 +60,17 @@ const VisionContent = styled.div`
 const VisionImage = styled(motion.div)`
   flex: 1;
   /* min-width: 300px; */
+  display: flex;
+  justify-content: center;
+
   position: relative;
+  @media (max-width: 1200px) {
+    width: 50%;
+    margin: auto;
+  }
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 
 const ImageFrame = styled.div`
@@ -71,17 +81,29 @@ const ImageFrame = styled.div`
   transform: rotate(-2deg);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-
+  
   &:hover {
     transform: rotate(0deg) scale(1.03);
   } */
-
+  @keyframes rot {
+    0% {
+      rotate: 0deg;
+    }
+    100% {
+      rotate: 360deg;
+    }
+  }
+  mix-blend-mode: lighten; /* أو screen */
+  /* border-radius: 50%; */
+  display: flex;
+  justify-content: center;
   img {
-    max-width: 100%;
     display: block;
-    width: 100%;
-    /* max-height: 100%; */
+    border-radius: 50%;
+    max-width: 100%;
+    max-height: 100%;
     mix-blend-mode: lighten; /* أو screen */
+    animation: rot 60s linear infinite;
   }
 `;
 
@@ -109,7 +131,6 @@ const Shape2 = styled.div`
 
 const VisionText = styled.div`
   flex: 1;
-  min-width: 300px;
   color: white;
   background-color: rgba(255, 255, 255, 0.1);
   padding: 40px;
@@ -119,6 +140,7 @@ const VisionText = styled.div`
   text-align: justify;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   &::before {
     content: "";
     position: absolute;
@@ -129,8 +151,9 @@ const VisionText = styled.div`
     background-color: white;
     border-radius: 5px 0 0 5px;
   }
+  /* background-color: red; */
 
-  @media (max-width: 992px) {
+  @media (max-width: 1200px) {
     padding: 25px;
     /* text-align: center; */
     text-align-last: center;
@@ -153,7 +176,7 @@ const TextTitle = styled(motion.h3)`
     opacity: 0.8;
   }
 
-  @media (max-width: 992px) {
+  @media (max-width: 1200px) {
     font-size: 1.5rem;
     /* text-align: center; */
     align-self: center;
@@ -161,7 +184,7 @@ const TextTitle = styled(motion.h3)`
 `;
 
 const Paragraph = styled(motion.div)`
-  font-size: var(--small-text);
+  font-size: var(--normal-text);
   line-height: 1.9;
   margin-bottom: 20px;
   position: relative;

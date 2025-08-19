@@ -89,24 +89,37 @@ export const BackgroundSlide = styled.div`
 
 export const ProjectIndicator = styled(motion.div)`
   position: absolute;
-  top: 30%;
-  right: 20%;
+  bottom: 30px;
+  right: 20px;
   overflow: hidden;
   /* transform: translateX(50%); */
   text-align: start;
   z-index: 3;
-  /* background: rgba(0, 0, 0, 0.5); */
+  background: rgba(255, 255, 255, 0.1);
+
   padding: 1rem 10px;
-  /* border-radius: 10px; */
-  /* max-width: 90%; */
-  width: 300px;
-  height: 60px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 400px;
+  /* max-width: 500px; */
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-right: 5px solid var(--primary);
+  border-left: 5px solid var(--primary);
   box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 550px) {
+    width: 300px;
+  }
 `;
 
 export const ProjectName = styled(motion.div)`
-  font-size: var(--normal-text);
+  font-size: var(--small-text);
   color: rgba(255, 255, 255, 0.95);
   text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
+  @media (max-width: 550px) {
+    font-size: 15px;
+  }
 `;

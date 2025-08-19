@@ -1,13 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import ProjectCard from "./ProjectCard";
-// import { featuredProjects } from "../../../assets/data/projects";
 import { Container } from "../../ui/container.styles";
 import { MainTitle, SubTitle, Text } from "../../common/texts";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 
-// استيراد ملفات CSS الخاصة بـ Swiper
 import "swiper/css";
 import "swiper/css/pagination";
 import {
@@ -24,6 +22,7 @@ export const StlyedSwiper = styled(Swiper)`
   }
   padding: 50px 0;
   direction: ltr;
+
   .swiper-slide {
     direction: rtl;
     @media (max-width: 768px) {
@@ -33,31 +32,63 @@ export const StlyedSwiper = styled(Swiper)`
 `;
 
 const ProjectsSection = () => {
-  const data = useContext(DataContext);
-  const { projects, base_url: url } = data;
-  console.log(projects, url);
+  const { projects, base_url: url } = useContext(DataContext);
+
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+
+  // مراجع للتحكم في الـ Swiper ولمراقبة ظهور القسم
+  const swiperRef = useRef(null);
+  const sectionRef = useRef(null);
+
+  // استخدم IntersectionObserver لبدء/إيقاف الـ autoplay
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const swiper = swiperRef.current;
+        if (!swiper?.autoplay) return;
+
+        if (entry.isIntersecting) {
+          swiper.autoplay.start();
+        } else {
+          swiper.autoplay.stop();
+        }
+      },
+      {
+        root: null,
+        threshold: 0.4,
+      }
+    );
+
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const handleShowModal = (project) => {
-    console.log(project);
-    setModalOpen(true);
     setSelectedProject(project);
+    setModalOpen(true);
   };
+
   return (
-    <Container
-      id="projects"
-      // className="fade-in"
-    >
+    <Container id="projects" ref={sectionRef}>
       <MainTitle {...titleAnimation}>مشاريعنا المختارة</MainTitle>
 
-      {/* إعداد Swiper */}
       <motion.div {...sectionAnimation}>
         <StlyedSwiper
           modules={[Pagination, Autoplay]}
           pagination={{ clickable: true }}
           autoplay={{
             delay: 3000,
-            disableOnInteraction: true, // تعطيل التنقل التلقائي عند تفاعل المستخدم
+            disableOnInteraction: true,
+            // pauseOnMouseEnter: true,
+          }}
+          speed={1000}
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+            // أوقف autoplay منذ البداية حتى يظهر القسم
+            swiper.autoplay?.stop();
           }}
           breakpoints={{
             1100: {
@@ -74,15 +105,9 @@ const ProjectsSection = () => {
             },
           }}
         >
-          {projects.map((project, index) => (
-            <SwiperSlide key={index}>
+          {projects.map((project, idx) => (
+            <SwiperSlide key={idx}>
               <ProjectCard
-                title={project.title}
-                description={project.short_description}
-                image={url + project.cover_image}
-                area={project.area}
-                location={project.location}
-                images={project.images}
                 handleShowModal={handleShowModal}
                 project={project}
               />
@@ -90,33 +115,33 @@ const ProjectsSection = () => {
           ))}
         </StlyedSwiper>
       </motion.div>
+
       {selectedProject && (
-        <>
-          <Modal
-            selectedProject={selectedProject}
-            isOpen={isModalOpen}
-            onClose={() => setModalOpen(false)}
+        <Modal
+          isOpen={isModalOpen}
+          onClose={() => setModalOpen(false)}
+          selectedProject={selectedProject}
+        >
+          <SubTitle>{selectedProject.title}</SubTitle>
+          <Text>{selectedProject.short_description}</Text>
+
+          <StlyedSwiper
+            modules={[Pagination]}
+            pagination={{ clickable: true }}
+            spaceBetween={10}
+            slidesPerView={2}
           >
-            <SubTitle>{selectedProject.title}</SubTitle>
-            <Text>{selectedProject.short_description}</Text>
-            <StlyedSwiper
-              modules={[Pagination]}
-              pagination={{ clickable: true }}
-              spaceBetween={10}
-              slidesPerView={2}
-            >
-              {selectedProject.images.map((img, idx) => (
-                <SwiperSlide key={idx}>
-                  <img
-                    src={`https://jaberissa.pythonanywhere.com/${img.image}`}
-                    alt={`{title} - صورة ${idx + 1}`}
-                    style={{ width: "100%", borderRadius: "4px" }}
-                  />
-                </SwiperSlide>
-              ))}
-            </StlyedSwiper>
-          </Modal>
-        </>
+            {selectedProject.images.map((img, index) => (
+              <SwiperSlide key={index}>
+                <img
+                  src={`https://jaberissa.pythonanywhere.com/${img.image}`}
+                  alt={`${selectedProject.title} - صورة ${index + 1}`}
+                  style={{ width: "100%", borderRadius: "4px" }}
+                />
+              </SwiperSlide>
+            ))}
+          </StlyedSwiper>
+        </Modal>
       )}
     </Container>
   );

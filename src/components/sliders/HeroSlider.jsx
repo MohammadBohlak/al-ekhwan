@@ -83,8 +83,8 @@ const HeroSlider = ({ projects }) => {
         </StyledSwiper>
       </HeroBackground>
       <ProjectIndicator
-        initial={{ height: 0, padding: 0, opacity: 0 }}
-        animate={{ height: "65px", padding: "1rem 10px", opacity: 1 }}
+        initial={{ heigth: "0", padding: 0, opacity: 0 }}
+        animate={{ heigth: "65px", padding: "1rem 10px", opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
       >
         <AnimatePresence mode="wait">
@@ -93,9 +93,9 @@ const HeroSlider = ({ projects }) => {
               currentSlide === index && (
                 <ProjectName
                   key={projects.images[currentSlide].id} // مفتاح فريد لكل مشروع
-                  initial={{ x: "100%" }}
-                  animate={{ x: "0%" }}
-                  exit={{ opacity: 0, x: "100%" }}
+                  initial={{ y: "200%" }}
+                  animate={{ y: "0%" }}
+                  exit={{ opacity: 0, y: "200%" }}
                   transition={
                     isFirstLoad
                       ? { duration: 1, delay: 2 }

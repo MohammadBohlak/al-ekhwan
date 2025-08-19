@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { LightText, SubTitle, Text } from "../../common/texts";
 import { TbListDetails } from "react-icons/tb";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Modal from "./Modal";
+import { DataContext } from "../../../App";
 
 const StyledProjectCard = styled.div`
   /* background: rgba(255, 140, 0, 0.1); */
@@ -80,38 +81,20 @@ const ButtonDetail = styled.button`
     color: var(--primary);
   }
 `;
-const ProjectCard = ({
-  area,
-  location,
-  title,
-  description,
-  details,
-  image,
-  images,
-  handleShowModal,
-  project,
-  ...props
-}) => {
-  console.log(images);
-
+const ProjectCard = ({ handleShowModal, project, ...props }) => {
+  console.log(project);
+  const { url } = useContext(DataContext);
   return (
     <>
       <StyledProjectCard {...props}>
-        {project.cover_image ? (
-          <ProjectImage style={{ backgroundImage: `url(${image})` }}>
-            {/* <img src={image}/> */}
-          </ProjectImage>
-        ) : (
-          <ProjectImage>{icon}</ProjectImage>
-        )}
+        <ProjectImage
+          style={{ backgroundImage: `url(${url + project.cover_image})` }}
+        ></ProjectImage>
         <ProjectInfo>
           <SubTitle>{project.title}</SubTitle>
           <Text className="desc">{project.short_description}</Text>
-          {/* {details && ( */}
-          {/* // <ProjectDetails dangerouslySetInnerHTML={{ __html: details }} /> */}
           <LightText>المساحة : {project.area}</LightText>
           <LightText>الموقع : {project.location}</LightText>
-          {/* )} */}
         </ProjectInfo>
         <div className="btn-detail">
           <ButtonDetail onClick={() => handleShowModal(project)}>
