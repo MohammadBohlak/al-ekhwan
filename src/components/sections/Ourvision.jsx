@@ -4,7 +4,10 @@ import styled, { createGlobalStyle } from "styled-components";
 import { FaEye } from "react-icons/fa";
 import { MainTitle, SubTitle } from "../common/texts";
 import { Container } from "../ui/container.styles";
-
+// import img from "../../assets/images/ourvision/tech.png";
+import img from "../../assets/images/ourvision/technology.png";
+import { sectionAnimation, titleAnimation } from "../../animations/animations";
+import { motion } from "motion/react";
 const VisionSection = styled(Container)`
   background-color: #ff8c00;
   /* padding: 80px 0; */
@@ -36,63 +39,32 @@ const VisionSection = styled(Container)`
   }
 `;
 
-// const Container = styled.div`
-//   /* max-width: 1200px; */
-//   margin: 0 auto;
-//   /* padding: 0 20px; */
-//   position: relative;
-//   z-index: 2;
-// `;
-
 const VisionHeader = styled.div`
   text-align: center;
   margin-bottom: 60px;
 `;
 
-const Title = styled.h2`
-  font-size: 3rem;
-  font-weight: 900;
-  color: white;
-  position: relative;
-  display: inline-block;
-  padding-bottom: 15px;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100px;
-    height: 5px;
-    background-color: white;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 2.2rem;
-  }
-`;
-
 const VisionContent = styled.div`
   display: flex;
   align-items: center;
-  gap: 100px;
+  /* gap: 100px; */
   width: 100%;
   justify-content: space-between;
   flex-wrap: wrap;
   flex-direction: row-reverse;
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     flex-direction: column;
   }
 `;
 
-const VisionImage = styled.div`
+const VisionImage = styled(motion.div)`
   flex: 1;
-  min-width: 300px;
+  /* min-width: 300px; */
   position: relative;
 `;
 
 const ImageFrame = styled.div`
-  position: relative;
+  /* position: relative;
   border: 8px solid rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   overflow: hidden;
@@ -102,11 +74,14 @@ const ImageFrame = styled.div`
 
   &:hover {
     transform: rotate(0deg) scale(1.03);
-  }
+  } */
 
   img {
-    width: 100%;
+    max-width: 100%;
     display: block;
+    width: 100%;
+    /* max-height: 100%; */
+    mix-blend-mode: lighten; /* أو screen */
   }
 `;
 
@@ -141,7 +116,9 @@ const VisionText = styled.div`
   border-radius: 10px;
   position: relative;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
   &::before {
     content: "";
     position: absolute;
@@ -153,12 +130,14 @@ const VisionText = styled.div`
     border-radius: 5px 0 0 5px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     padding: 25px;
+    /* text-align: center; */
+    text-align-last: center;
   }
 `;
 
-const TextTitle = styled.h3`
+const TextTitle = styled(motion.h3)`
   font-size: 1.8rem;
   margin-bottom: 25px;
   font-weight: 700;
@@ -174,12 +153,14 @@ const TextTitle = styled.h3`
     opacity: 0.8;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     font-size: 1.5rem;
+    /* text-align: center; */
+    align-self: center;
   }
 `;
 
-const Paragraph = styled.p`
+const Paragraph = styled(motion.div)`
   font-size: var(--small-text);
   line-height: 1.9;
   margin-bottom: 20px;
@@ -200,6 +181,7 @@ const Paragraph = styled.p`
 
   @media (max-width: 768px) {
     font-size: 1rem;
+    margin-bottom: 10px;
   }
 `;
 
@@ -215,17 +197,25 @@ const Highlight = styled.span`
 const Ourvision = () => (
   <>
     {/* <GlobalStyle /> */}
-    <VisionSection>
+    <VisionSection
+      initial={{ backgroundColor: "transparent" }}
+      whileInView={{ backgroundColor: "#ff8c00" }}
+      transition={{ duration: 1 }}
+      // viewport={{ once: true, amount: 0.5 }}
+    >
       {/* <Container> */}
       <VisionHeader>
-        <MainTitle $color="#ffffff">رؤيتنا</MainTitle>
+        <MainTitle $color="#ffffff" {...titleAnimation}>
+          رؤيتنا
+        </MainTitle>
       </VisionHeader>
 
       <VisionContent>
         <VisionImage>
           <ImageFrame>
             <img
-              src="https://sfile.chatglm.cn/images-ppt/20b17a93db09.jpg"
+              // src="https://sfile.chatglm.cn/images-ppt/20b17a93db09.jpg"
+              src={img}
               alt="موقع بناء احترافي"
             />
           </ImageFrame>
@@ -234,22 +224,22 @@ const Ourvision = () => (
         </VisionImage>
 
         <VisionText>
-          <TextTitle>
+          <TextTitle {...sectionAnimation}>
             <FaEye /> رؤيتنا المستقبلية
           </TextTitle>
-          <Paragraph>
+          <Paragraph {...sectionAnimation}>
             نطمح لأن نكون <Highlight>الشركة الرائدة</Highlight> في مجال البناء
             والتشييد على مستوى المنطقة.
           </Paragraph>
-          <Paragraph>
+          <Paragraph {...sectionAnimation}>
             نسعى لتحقيق التميز من خلال <Highlight>الابتكار المستمر</Highlight>{" "}
             وتطبيق أحدث التقنيات في جميع مشاريعنا.
           </Paragraph>
-          <Paragraph>
+          <Paragraph {...sectionAnimation}>
             نلتزم بأعلى معايير <Highlight>الجودة والسلامة</Highlight> واستخدام
             مواد صديقة للبيئة لضمان استدامة مشاريعنا.
           </Paragraph>
-          <Paragraph>
+          <Paragraph {...sectionAnimation}>
             رؤيتنا تتمثل في بناء مجتمعات أكثر تطوراً وتحسين جودة الحياة من خلال
             مشاريع عمرانية متميزة.
           </Paragraph>

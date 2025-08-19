@@ -2,7 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "motion/react";
-import { LigntText, SubTitle, Text } from "../../common/texts";
+import { LightText, SubTitle, Text } from "../../common/texts";
 import { StlyedSwiper } from "./ProjectsSection";
 import { Pagination } from "swiper/modules";
 import { SwiperSlide } from "swiper/react";
@@ -19,21 +19,21 @@ const Overlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 1001;
 `;
 
 const ModalContent = styled(motion.div)`
   background: #fff;
   width: 90%;
   max-width: 800px;
-  max-height: 80vh;
+  /* height: clamp(80vh, 80vh, 100vh); */
   border-radius: 8px;
   overflow: hidden;
   padding: 5px 10px;
   /* padding-bottom: 40px; */
   text-align: center;
-  /* display: flex; */
-  /* flex-direction: column; */
+  display: flex;
+  flex-direction: column;
   /* > * :not(.no-margin) {
     margin-top: 10px;
   } */
@@ -109,8 +109,8 @@ export default function Modal({ isOpen, onClose, selectedProject, children }) {
             flexWrap: "wrap",
           }}
         >
-          <LigntText>المساحة : {selectedProject.area}</LigntText>
-          <LigntText>الموقع : {selectedProject.location}</LigntText>
+          <LightText>المساحة : {selectedProject.area}</LightText>
+          <LightText>الموقع : {selectedProject.location}</LightText>
         </div>
         <SwiperContainer>
           <StlyedSwiper

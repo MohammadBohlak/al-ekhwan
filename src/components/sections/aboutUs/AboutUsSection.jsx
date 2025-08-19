@@ -27,13 +27,12 @@ import {
   Images,
   StyledAboutUs,
 } from "./aboutUs.styles";
-// ===== Styled Components =====
 
 // ===== Component =====
 
 const AboutUsSection = () => {
   // الأهداف التي يمكن تحديثها لاحقًا من السيرفر
-  const [targets, setTargets] = useState({ years: 25, projects: 500 });
+  const [targets, setTargets] = useState({ years: 30, projects: 500 });
 
   // MotionValues للعدادات
   const yearsMV = useMotionValue(0);
@@ -101,7 +100,7 @@ const AboutUsSection = () => {
                 {displayYears}
                 <motion.span style={{ fontSize: "40px" }}>+</motion.span>
               </CounterNumber>
-              <Text>سنوات الخبرة</Text>
+              <Text>عام من الخبرة</Text>
             </Counter>
           </CountersContainer>
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { LigntText, SubTitle, Text } from "../../common/texts";
+import { LightText, SubTitle, Text } from "../../common/texts";
 import { TbListDetails } from "react-icons/tb";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Modal from "./Modal";
@@ -109,8 +109,8 @@ const ProjectCard = ({
           <Text className="desc">{project.short_description}</Text>
           {/* {details && ( */}
           {/* // <ProjectDetails dangerouslySetInnerHTML={{ __html: details }} /> */}
-          <LigntText>المساحة : {project.area}</LigntText>
-          <LigntText>الموقع : {project.location}</LigntText>
+          <LightText>المساحة : {project.area}</LightText>
+          <LightText>الموقع : {project.location}</LightText>
           {/* )} */}
         </ProjectInfo>
         <div className="btn-detail">

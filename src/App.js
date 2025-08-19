@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import Footer from "./components/common/Footer";
+import Footer from "./components/ui/footer/Footer";
 import HeroSection from "./components/sections/HeroSection";
 import ServicesSection from "./components/sections/ServicesSection";
 import ProjectsSection from "./components/sections/projects/ProjectsSection";

@@ -355,25 +355,3 @@ export const teamMembers = [
   // { image: team2, name: "المهندسة سارة يوسف", position: "رئيسة قسم التصميم" },
   // { image: team3, name: "المهندس خالد حسن", position: "المدير التنفيذي" }
 ];
-export const contactInfo = [
-  {
-    icon: <FaPhone />,
-    title: "الهاتف",
-    details: "+963962447416",
-  },
-  {
-    icon: <MdEmail />,
-    title: "البريد الإلكتروني",
-    details: "info@alakhwan.com",
-  },
-  {
-    icon: <FaLocationDot />,
-    title: "العنوان",
-    details: "حمص , الدبلان شارع العراب ",
-  },
-  {
-    icon: <MdOutlineAccessTimeFilled />,
-    title: "ساعات العمل",
-    details: "السبت - الخميس 8:00 ص - 6:00 م",
-  },
-];

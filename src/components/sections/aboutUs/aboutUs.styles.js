@@ -11,38 +11,54 @@ export const Header = styled.header`
 
 export const CountersContainer = styled(motion.div)`
   display: flex;
-  justify-content: center;
-  margin: 50px 0;
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
+  margin: 20px 0;
+  @media (max-width: 992px) {
+    justify-content: center;
+    /* flex-direction: column; */
+    /* align-items: center; */
   }
 `;
 
 export const Counter = styled(motion.div)`
-  background-color: #ffffff;
   border: 1px solid var(--primary);
-  padding: 30px;
-  margin: 0 20px;
+  padding: 0px 0px 0px 20px;
   text-align: center;
-  width: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  border-radius: 50px 0 50px 0;
+  gap: 20px;
+  border-radius: 30px;
 `;
 
 export const CounterNumber = styled.div`
-  font-size: 60px;
+  border-radius: 30px;
+  padding: 0 10px;
+  font-size: 40px;
   font-weight: 500;
   color: var(--primary);
   display: flex;
-  /* align-items: baseline; */
+  background-color: var(--primary);
   justify-content: center;
   align-items: center;
   font-family: sans-serif;
+  color: white;
+  position: relative;
+  &::after,
+  &::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: inherit;
+    opacity: 0.4;
+    right: 5px;
+    z-index: -1;
+  }
+  &::before {
+    right: 10px;
+  }
 `;
 export const StyledAboutUs = styled(Container)`
   /*  */
@@ -53,6 +69,8 @@ export const AboutContenet = styled(motion.div)`
   max-height: 1000px;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+  line-height: 1.6;
+  word-spacing: 5px;
   @media (max-width: 992px) {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 500px;

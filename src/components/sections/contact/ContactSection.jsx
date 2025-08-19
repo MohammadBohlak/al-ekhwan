@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Container } from "../../ui/container.styles";
-import { LigntText, MainTitle, SubTitle } from "../../common/texts";
+import { LightText, MainTitle, SubTitle } from "../../common/texts";
 import {
   sectionAnimation,
   titleAnimation,

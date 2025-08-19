@@ -4,6 +4,7 @@ import { Swiper } from "swiper/react";
 
 export const HeroSection = styled.section`
   height: calc(100vh - var(--h-navbar));
+  /* min-height: 50vh; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,6 +22,10 @@ export const HeroSection = styled.section`
     height: 100%;
     background: rgba(0, 0, 0, 0.2);
     z-index: -1;
+  }
+  @media (max-width: 768px) {
+    /* margin-bottom: 0; */
+    height: 50vh;
   }
 `;
 

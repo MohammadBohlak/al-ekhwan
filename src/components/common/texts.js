@@ -32,7 +32,7 @@ export const Text = styled(motion.div)`
   color: #000;
   color: ${({ $color }) => ($color ? $color : "#000")};
 `;
-export const LigntText = styled(motion.div)`
+export const LightText = styled(motion.div)`
   font-size: var(--min-text);
   color: #555;
 `;
