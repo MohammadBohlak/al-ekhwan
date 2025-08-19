@@ -71,6 +71,66 @@ export const AboutRight = styled(motion.div)`
     text-align: justify;
   }
 `;
+
+export const YearsExperience = styled(motion.div)`
+  margin: 50px auto;
+  width: 300px;
+  height: 60px;
+  border-radius: 50px;
+  background-color: var(--primary);
+  /* background-image: linear-gradient(to bottom, var(--primary), #ff981a); */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  position: relative;
+  @media (max-width: 768px) {
+    height: 40px;
+  }
+`;
+
+export const CircleExperience = styled.div`
+  width: 80px;
+  height: 80ox;
+  border-radius: 50%;
+  border: 3px solid #f5f7f8;
+  background-color: #ff981a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -40px;
+  font-family: sans-serif;
+  font-weight: 700;
+  @media (max-width: 768px) {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+  }
+`;
+
+export const NumberExperience = styled.div`
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  transform: translateY(5px);
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+`;
+
+export const TextYears = styled.div`
+  transform: translateY(-5px);
+  font-size: 20px;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+`;
+
 export const AboutLeft = styled(motion.div)`
   display: flex;
   flex-direction: column;

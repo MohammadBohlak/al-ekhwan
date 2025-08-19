@@ -7,8 +7,8 @@ const StyledLoader = styled.div`
   right: 50%;
   top: 50%;
   transform: translate(50%, -50%);
-  width: 200px;
-  height: 200px;
+  width: 120px;
+  height: 120px;
   z-index: 1000;
   /* background-color: #00000088; */
   /* background-color: #ffffff88; */

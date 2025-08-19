@@ -7,7 +7,7 @@ import {
   useTransform,
   animate,
 } from "motion/react";
-import { MainTitle, Text } from "../../common/texts";
+import { MainTitle, SubTitle, Text } from "../../common/texts";
 import { Container } from "../../ui/container.styles";
 import {
   sectionAnimation,
@@ -19,13 +19,17 @@ import {
   AboutContenet,
   AboutLeft,
   AboutRight,
+  CircleExperience,
   Counter,
   CounterNumber,
   CountersContainer,
   Header,
   Image,
   Images,
+  NumberExperience,
   StyledAboutUs,
+  TextYears,
+  YearsExperience,
 } from "./aboutUs.styles";
 
 // ===== Component =====
@@ -93,7 +97,7 @@ const AboutUsSection = () => {
             صناعية. فريقنا من المهندسين والفنيين ذوي الخبرة يعمل جاهداً لتحقيق
             رؤية عملائنا وتحويل أحلامهم إلى واقع ملموس.
           </Text>
-
+          {/* 
           <CountersContainer ref={ref}>
             <Counter {...sectionAnimation}>
               <CounterNumber>
@@ -102,7 +106,15 @@ const AboutUsSection = () => {
               </CounterNumber>
               <Text style={{ fontWeight: "bold" }}>عام من الخبرة</Text>
             </Counter>
-          </CountersContainer>
+          </CountersContainer> */}
+          <YearsExperience ref={ref} {...sectionAnimation}>
+            <SubTitle style={{ color: "#ffffff" }}>من</SubTitle>
+            <CircleExperience>
+              <NumberExperience>{displayYears}+</NumberExperience>
+              <TextYears>سنوات</TextYears>
+            </CircleExperience>
+            <SubTitle style={{ color: "#ffffff" }}>الخبرة</SubTitle>
+          </YearsExperience>
 
           <Text className="description" {...sectionAnimation}>
             تتميز شركتنا بالالتزام بالمواعيد النهائية والجودة الفائقة والابتكار
