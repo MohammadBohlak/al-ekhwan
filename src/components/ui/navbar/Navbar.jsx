@@ -20,6 +20,9 @@ export const NavbarContainer = styled.header`
   transform: translateY(${(props) => (props.$scrolled ? "-100%" : "0")});
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   z-index: 1000;
+  @media (max-width: 768px) {
+    padding: 10px 5px;
+  }
 `;
 
 export const Nav = styled.nav`
@@ -43,7 +46,7 @@ export const LogoLink = styled.a`
   gap: 10px;
 
   &:hover {
-    color: #ff8c00;
+    color: var(--primary);
   }
 `;
 
@@ -59,7 +62,7 @@ export const SiteTitle = styled.span`
     font-size: 16px;
   }
   @media (max-width: 500px) {
-    font-size: 12px;
+    font-size: 14px;
   }
 `;
 
@@ -81,7 +84,7 @@ export const NavLink = styled.a`
   transition: color 0.3s ease;
 
   &:hover {
-    color: #ff8c00;
+    color: var(--primary);
   }
 
   &::after {
@@ -91,7 +94,7 @@ export const NavLink = styled.a`
     right: 0;
     width: 0;
     height: 2px;
-    background: #ff8c00;
+    background: var(--primary);
     transition: width 0.3s ease;
   }
 
