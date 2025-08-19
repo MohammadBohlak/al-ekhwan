@@ -16,68 +16,21 @@ import ScrollCircle from "./components/ui/ScrollCircle";
 import axios from "axios";
 // import { data } from "./data";
 import styled from "styled-components";
+import Loader from "./components/ui/Loader";
+// import Loader from "./components/ui/Loader";
 
-const Loader = styled.div`
-  /* HTML: <div class="loader"></div> */
-  position: fixed;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, -50%);
-  /* HTML: <div class="loader"></div> */
-  width: fit-content;
-  font-size: 40px;
-  font-family: monospace;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #0000;
-  -webkit-text-stroke: 1px var(--primary);
-  --g: conic-gradient(var(--primary) 0 0) no-repeat text;
-  background: var(--g) 0, var(--g) 1ch, var(--g) 2ch, var(--g) 3ch, var(--g) 4ch,
-    var(--g) 5ch, var(--g) 6ch;
-  background-position-y: 100%, 0;
-  animation: l16 2s linear infinite alternate;
-  &::before {
-    content: "ALAKHWAN";
-  }
-  @keyframes l16 {
-    0% {
-      background-size: 1ch 0, 1ch 0, 1ch 0, 1ch 0, 1ch 0, 1ch 0, 1ch 0;
-    }
-    14.28% {
-      background-size: 1ch 100%, 1ch 0, 1ch 0, 1ch 0, 1ch 0, 1ch 0, 1ch 0;
-    }
-    28.57% {
-      background-size: 1ch 100%, 1ch 100%, 1ch 0, 1ch 0, 1ch 0, 1ch 0, 1ch 0;
-    }
-    42.85% {
-      background-size: 1ch 100%, 1ch 100%, 1ch 100%, 1ch 0, 1ch 0, 1ch 0, 1ch 0;
-    }
-    57.14% {
-      background-size: 1ch 100%, 1ch 100%, 1ch 100%, 1ch 100%, 1ch 0, 1ch 0,
-        1ch 0;
-    }
-    71.43% {
-      background-size: 1ch 100%, 1ch 100%, 1ch 100%, 1ch 100%, 1ch 100%, 1ch 0,
-        1ch 0;
-    }
-    85.71% {
-      background-size: 1ch 100%, 1ch 100%, 1ch 100%, 1ch 100%, 1ch 100%,
-        1ch 100%, 1ch 0;
-    }
-    100% {
-      background-size: 1ch 100%, 1ch 100%, 1ch 100%, 1ch 100%, 1ch 100%,
-        1ch 100%, 1ch 100%;
-    }
-  }
-`;
 export const DataContext = createContext();
 export const url = "https://jaberissa.pythonanywhere.com";
 const MainContent = styled.main`
   margin-top: var(--h-navbar);
 `;
 function App() {
+  const showContent = () => {
+    setShow(true);
+  };
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [show, setShow] = useState(false);
   useEffect(() => {
     // إضافة اتجاه RTL للصفحة
     document.documentElement.setAttribute("dir", "rtl");
@@ -86,7 +39,6 @@ function App() {
       .get("https://jaberissa.pythonanywhere.com/api/home/", {})
       .then((res) => {
         console.log(res.data);
-        console.log("data is :", data);
         setData(res.data);
         setLoading(false);
       });
@@ -95,7 +47,11 @@ function App() {
   return (
     <DataContext.Provider value={{ ...data, url: data.base_url }}>
       {/* <BackgroundEffects /> */}
-      {!loading ? (
+      {loading || !show ? (
+        <>
+          <Loader loading={loading} showContent={showContent} />
+        </>
+      ) : (
         <>
           <Navbar />
 
@@ -111,10 +67,7 @@ function App() {
             <ContactSection />
           </MainContent>
           <Footer />
-          {/* <ScrollAnimations /> */}
         </>
-      ) : (
-        <Loader />
       )}
     </DataContext.Provider>
   );
