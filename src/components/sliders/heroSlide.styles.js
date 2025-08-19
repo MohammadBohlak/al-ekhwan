@@ -55,20 +55,6 @@ export const HeroBackground = styled.div`
   z-index: -2;
 `;
 export const HeroForeground = styled(motion.div)`
-  @keyframes dropOverlay {
-    0% {
-      transform: translateY(-100%);
-    }
-    20% {
-      transform: translateY(0);
-    }
-    40% {
-      transform: translateY(100%);
-    }
-    100% {
-      transform: translateY(100%);
-    }
-  }
   position: absolute;
   inset: 0;
   width: 100%;
