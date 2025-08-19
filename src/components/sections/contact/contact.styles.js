@@ -13,7 +13,7 @@ export const ContactGrid = styled.div`
   }
 `;
 
-export const ContactFormWrapper = styled(motion.form)`
+export const ContactFormWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -44,8 +44,6 @@ export const FormBox = styled.div`
 `;
 
 export const FormTitle = styled(SubTitle)`
-  /* font-size: 24px; */
-  /* font-weight: 700; */
   color: #212121;
   margin-bottom: 20px;
   text-align: center;
@@ -87,7 +85,7 @@ export const FormInput = styled.input`
 
   &:focus {
     outline: none;
-    border-color: #ff7043;
+    border-color: var(--primary);
     box-shadow: 0 0 0 2px rgba(255, 112, 67, 0.1);
     background-color: #ffffff;
   }
@@ -107,27 +105,34 @@ export const FormTextarea = styled.textarea`
   resize: none;
   &:focus {
     outline: none;
-    border-color: #ff7043;
+    border-color: var(--primary);
     box-shadow: 0 0 0 2px rgba(255, 112, 67, 0.1);
     background-color: #ffffff;
   }
 `;
 
 export const SubmitButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 10px;
   padding: 12px 20px;
   font-size: var(--small-text);
   font-weight: bold;
   color: #ffffff;
-  background-color: #ff7043;
+  background-color: var(--primary);
   border: none;
+  height: 50px;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 1px solid #ff7043;
+  border: 1px solid var(--primary);
 
   &:hover {
-    background-color: #fff;
-    color: #ff7043;
+    opacity: 0.8;
   }
+`;
+export const ErrorText = styled.div`
+  font-size: var(--min-text);
+  color: red;
 `;

@@ -90,9 +90,10 @@ export const BackgroundSlide = styled.div`
 export const ProjectIndicator = styled(motion.div)`
   position: absolute;
   bottom: 30px;
-  right: 20px;
+  /* right: 20px; */
+  right: 50%;
   overflow: hidden;
-  /* transform: translateX(50%); */
+  transform: translateX(50%);
   text-align: start;
   z-index: 3;
   background: rgba(255, 255, 255, 0.1);

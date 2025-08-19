@@ -16,7 +16,7 @@ const StyledProjectCard = styled.div`
   border: 1px solid rgba(255, 140, 0, 0.3);
   /* position: relative; */
   display: flex;
-  min-height: 550px;
+  min-height: 580px;
   flex-direction: column;
   &:hover {
     /* transform: scale(1.05); */
@@ -82,7 +82,6 @@ const ButtonDetail = styled.button`
   }
 `;
 const ProjectCard = ({ handleShowModal, project, ...props }) => {
-  console.log(project);
   const { url } = useContext(DataContext);
   return (
     <>
@@ -93,6 +92,7 @@ const ProjectCard = ({ handleShowModal, project, ...props }) => {
         <ProjectInfo>
           <SubTitle>{project.title}</SubTitle>
           <Text className="desc">{project.short_description}</Text>
+          <LightText>النوع : {project.project_type}</LightText>
           <LightText>المساحة : {project.area}</LightText>
           <LightText>الموقع : {project.location}</LightText>
         </ProjectInfo>

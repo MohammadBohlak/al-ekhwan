@@ -112,6 +112,7 @@ export default function Modal({ isOpen, onClose, selectedProject, children }) {
             flexWrap: "wrap",
           }}
         >
+          <LightText>النوع : {selectedProject.project_type}</LightText>
           <LightText>المساحة : {selectedProject.area}</LightText>
           <LightText>الموقع : {selectedProject.location}</LightText>
         </div>

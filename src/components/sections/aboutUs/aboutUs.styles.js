@@ -11,6 +11,8 @@ export const Header = styled.header`
 
 export const CountersContainer = styled(motion.div)`
   display: flex;
+  align-items: center;
+  flex-direction: column;
   margin: 20px 0;
   @media (max-width: 992px) {
     justify-content: center;
@@ -20,45 +22,27 @@ export const CountersContainer = styled(motion.div)`
 `;
 
 export const Counter = styled(motion.div)`
-  border: 1px solid var(--primary);
-  padding: 0px 0px 0px 20px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* padding: 10px 0; */
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
-  border-radius: 30px;
+  flex-direction: column;
+  width: 300px;
+  border: 1px solid #000;
+  /* padding: 0px 0px 0px 20px; */
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* gap: 20px; */
+  font-size: var(--big-text);
+
+  /* border-radius: 30px; */
+  border-radius: 25px 0px 25px 0px;
 `;
 
 export const CounterNumber = styled.div`
-  border-radius: 30px;
-  padding: 0 10px;
-  font-size: 40px;
-  font-weight: 500;
+  font-size: var(--big-text);
   color: var(--primary);
-  display: flex;
-  background-color: var(--primary);
-  justify-content: center;
-  align-items: center;
+  font-weight: 700;
   font-family: sans-serif;
-  color: white;
-  position: relative;
-  &::after,
-  &::before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 100%;
-    border-radius: inherit;
-    background-color: inherit;
-    opacity: 0.4;
-    right: 5px;
-    z-index: -1;
-  }
-  &::before {
-    right: 10px;
-  }
 `;
 export const StyledAboutUs = styled(Container)`
   /*  */

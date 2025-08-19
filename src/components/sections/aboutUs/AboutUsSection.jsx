@@ -100,7 +100,7 @@ const AboutUsSection = () => {
                 {displayYears}
                 <motion.span style={{ fontSize: "40px" }}>+</motion.span>
               </CounterNumber>
-              <Text>عام من الخبرة</Text>
+              <Text style={{ fontWeight: "bold" }}>عام من الخبرة</Text>
             </Counter>
           </CountersContainer>
 

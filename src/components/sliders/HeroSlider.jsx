@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import styled from "styled-components";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCreative, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -111,7 +110,7 @@ const HeroSlider = ({ projects }) => {
 
       <HeroForeground
         key={animateKey} // إعادة رسم العنصر عند تغير القيمة
-        initial={isFirstLoad ? false : { transform: "translateY(-100%)" }}
+        initial={isFirstLoad ? false : { transform: "translateY(-120%)" }}
         animate={{ transform: "translateY(100%)" }}
         transition={{ duration: 2, ease: "easeIn" }}
       />
