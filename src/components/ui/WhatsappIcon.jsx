@@ -19,10 +19,11 @@ const StyledWhatsappIcon = styled(motion.a)`
     font-size: 30px;
   }
 `;
+
 const WhatsappIcon = () => {
   return (
     <StyledWhatsappIcon
-      href="https://wa.me/963952347334"
+      href="https://wa.me/963962447416"
       target="_blank"
       initial={{ x: 100 }}
       animate={{ x: 0 }}
