@@ -1,7 +1,8 @@
 import { BsWhatsapp } from "react-icons/bs";
 import React from "react";
 import styled from "styled-components";
-const StyledWhatsappIcon = styled.a`
+import { motion } from "motion/react";
+const StyledWhatsappIcon = styled(motion.a)`
   position: fixed;
   width: 50px;
   height: 50px;
@@ -20,7 +21,13 @@ const StyledWhatsappIcon = styled.a`
 `;
 const WhatsappIcon = () => {
   return (
-    <StyledWhatsappIcon href="https://wa.me/963952347334">
+    <StyledWhatsappIcon
+      href="https://wa.me/963952347334"
+      target="_blank"
+      initial={{ x: 100 }}
+      animate={{ x: 0 }}
+      transition={{ delay: 1, duration: 1, type: "spring", stiffness: 100 }}
+    >
       <BsWhatsapp />
     </StyledWhatsappIcon>
   );
