@@ -91,7 +91,7 @@ const ProjectsSection = () => {
             swiper.autoplay?.stop();
           }}
           breakpoints={{
-            1100: {
+            1200: {
               slidesPerView: 3,
               spaceBetween: 15,
             },

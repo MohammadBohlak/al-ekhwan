@@ -17,6 +17,7 @@ import axios from "axios";
 // import { data } from "./data";
 import styled from "styled-components";
 import Loader from "./components/ui/Loader";
+import WhatsappIcon from "./components/ui/WhatsappIcon";
 // import Loader from "./components/ui/Loader";
 
 export const DataContext = createContext();
@@ -56,7 +57,7 @@ function App() {
           <Navbar />
 
           <MainContent>
-            <ScrollCircle />
+            {/* <ScrollCircle /> */}
             <HeroSection />
             <AboutUsSection />
             <Ourvision />
@@ -67,6 +68,7 @@ function App() {
             <ContactSection />
           </MainContent>
           <Footer />
+          <WhatsappIcon />
         </>
       )}
     </DataContext.Provider>
