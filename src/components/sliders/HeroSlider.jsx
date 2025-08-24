@@ -7,11 +7,8 @@ import "swiper/css/pagination";
 // import { projects } from '../../assets/data/projects';
 // استيراد الأنماط
 import "swiper/css";
-import "swiper/css/effect-fade";
-import "swiper/css/effect-cube";
-import "swiper/css/effect-coverflow";
 import "swiper/css/effect-creative";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence } from "motion/react";
 import {
   BackgroundSlide,
   HeroBackground,

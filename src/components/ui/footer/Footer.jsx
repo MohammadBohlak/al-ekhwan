@@ -56,13 +56,15 @@ const Footer = () => {
               معايير الجودة والاحترافية.
             </Text>
             <SocialLinks>
-              <SocialLink href="#">
+              <SocialLink href="https://www.facebook.com">
                 <FaFacebookF />
               </SocialLink>
-              <SocialLink href="#">
+
+              <SocialLink href="https://www.instagram.com">
                 <FaInstagram />
               </SocialLink>
-              <SocialLink href="#">
+
+              <SocialLink href="https://wa.me/963962447416">
                 <FaWhatsapp />
               </SocialLink>
             </SocialLinks>

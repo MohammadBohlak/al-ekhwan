@@ -1,24 +1,17 @@
-import React, { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import Footer from "./components/ui/footer/Footer";
 import HeroSection from "./components/sections/HeroSection";
 import ServicesSection from "./components/sections/ServicesSection";
 import ProjectsSection from "./components/sections/projects/ProjectsSection";
 import ClientsSection from "./components/sections/clients/ClientsSection";
-import TeamSection from "./components/sections/TeamSection";
 import ContactSection from "./components/sections/contact/ContactSection";
-import BackgroundEffects from "./components/common/BackgroundEffects";
-import ScrollAnimations from "./components/common/ScrollAnimations";
 import Navbar from "./components/ui/navbar/Navbar";
 import AboutUsSection from "./components/sections/aboutUs/AboutUsSection";
-import Ourvision from "./components/sections/Ourvision";
-import ScrollCircle from "./components/ui/ScrollCircle";
-// import Loader from "./components/ui/Loader";
+import Ourvision from "./components/sections/ourvision/Ourvision";
 import axios from "axios";
-// import { data } from "./data";
 import styled from "styled-components";
 import Loader from "./components/ui/Loader";
 import WhatsappIcon from "./components/ui/WhatsappIcon";
-// import Loader from "./components/ui/Loader";
 
 export const DataContext = createContext();
 export const url = "https://jaberissa.pythonanywhere.com";
@@ -47,7 +40,6 @@ function App() {
 
   return (
     <DataContext.Provider value={{ ...data, url: data.base_url }}>
-      {/* <BackgroundEffects /> */}
       {loading || !show ? (
         <>
           <Loader loading={loading} showContent={showContent} />
@@ -57,14 +49,12 @@ function App() {
           <Navbar />
 
           <MainContent>
-            {/* <ScrollCircle /> */}
             <HeroSection />
             <AboutUsSection />
             <Ourvision />
             <ServicesSection />
             <ProjectsSection />
             <ClientsSection />
-            {/* <TeamSection /> */}
             <ContactSection />
           </MainContent>
           <Footer />

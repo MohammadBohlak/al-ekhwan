@@ -29,10 +29,7 @@ const ServicesGrid = styled.div`
 
 const ServicesSection = () => {
   return (
-    <Container
-      id="services"
-      // className="fade-in"
-    >
+    <Container id="services">
       <MainTitle {...titleAnimation}>خدماتنا</MainTitle>
       <ServicesGrid>
         {services.map((service, index) => (

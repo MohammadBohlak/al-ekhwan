@@ -9,7 +9,6 @@ import { SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { DataContext } from "../../../App";
-// ستايلات نافذة العرض المنبثقة
 const Overlay = styled.div`
   position: fixed;
   top: 0;
@@ -31,13 +30,9 @@ const ModalContent = styled(motion.div)`
   border-radius: 8px;
   overflow: hidden;
   padding: 5px 10px;
-  /* padding-bottom: 40px; */
   text-align: center;
   display: flex;
   flex-direction: column;
-  /* > * :not(.no-margin) {
-    margin-top: 10px;
-  } */
 `;
 
 const CloseButton = styled.button`
@@ -46,9 +41,6 @@ const CloseButton = styled.button`
   font-size: 1.5rem;
   display: block;
   text-align: start;
-  /* position: absolute; */
-  /* top: 15px; */
-  /* right: 20px; */
   cursor: pointer;
 `;
 const ProjectImage = styled.img`
@@ -60,13 +52,11 @@ const ProjectImage = styled.img`
   object-fit: cover;
 `;
 const SwiperContainer = styled.div`
-  /* background-color: red; */
   position: relative;
   &::after {
     position: absolute;
     content: "";
     width: 5px;
-    /* height: 310px; */
     height: 100%;
 
     top: 50%;
@@ -121,10 +111,6 @@ export default function Modal({ isOpen, onClose, selectedProject, children }) {
             modules={[Pagination]}
             pagination={{ clickable: true }}
             breakpoints={{
-              // 1100: {
-              //   slidesPerView: 3,
-              //   spaceBetween: 15,
-              // },
               768: {
                 slidesPerView: 2,
                 spaceBetween: 1,

@@ -7,21 +7,14 @@ import Modal from "./Modal";
 import { DataContext } from "../../../App";
 
 const StyledProjectCard = styled.div`
-  /* background: rgba(255, 140, 0, 0.1); */
-  /* padding: 15px; */
   box-shadow: var(--card-shadow);
   border-radius: 15px;
   overflow: hidden;
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 140, 0, 0.3);
-  /* position: relative; */
   display: flex;
   min-height: 580px;
   flex-direction: column;
-  &:hover {
-    /* transform: scale(1.05); */
-    /* box-shadow: 0 20px 40px rgba(255, 140, 0, 0.1); */
-  }
   .btn-detail {
     display: flex;
     justify-content: end;
@@ -50,7 +43,6 @@ const ProjectInfo = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 7px;
-  /* justify-content: space-between; */
   flex: 1;
   .desc {
     display: -webkit-box; /* تفعيل flexbox العمودي */

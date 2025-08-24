@@ -1,4 +1,3 @@
-import { AiOutlineArrowUp } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import logo from "../../assets/images/logo_without_background2.png";
@@ -10,8 +9,6 @@ const StyledLoader = styled.div`
   width: 120px;
   height: 120px;
   z-index: 1000;
-  /* background-color: #00000088; */
-  /* background-color: #ffffff88; */
   border-radius: 50%;
   img {
     width: 50%;
