@@ -32,7 +32,6 @@ function App() {
     axios
       .get("https://jaberissa.pythonanywhere.com/api/home/", {})
       .then((res) => {
-        console.log(res.data);
         setData(res.data);
         setLoading(false);
       });
